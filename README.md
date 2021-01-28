@@ -25,16 +25,14 @@ This project is interesting to us because it would allow us the opportunity to t
  Console text in ASCII and colors
  
  
- ## Design Pattern 1:
+ ## Design Patterns:
  ### Abstract Factory - Creation
 
 There are multiple problems we will anticipate in order to solve with the abstract factory design pattern. One of them will be cross platform console graphics. In order to output color onto the console, it is different between windows and linux. Additionally, they also need to be compiled differently. Thus, an abstract factory can be used to separate the instances between OS for the UI. Additionally, we will have a massive tree of classes revolving around the same type, such as entities. We will need to have an abstract factory in order to minimize the linkage between header files to create a certain type of entity.
 
- ## Design Pattern 2:
  ### State - Behavioral
 We picked this because as we are making a game, we will need the game to load different behavior depending on where you are in the game. For example, a menu should be very different from a battle. Additionally, only one state can be loaded at a time, thus allowing us to use the state design pattern. The problem we anticipate encountering is our tick function. We do not need all the states to tick at the same time since during the menu, the “game state” should be paused. Thus, ticking all of the states at once will be a massive waste of resources. Thus, we will use the state design pattern to switch out the behavior of our “Game” instance.
 
- ## Design Pattern 3:
  ### Composite - Structural
 We will have many classes that require updating their logic and also rendering. Thus, this will require many classes to call the same tick() and render() function depending on the branch/state they are in. Thus, we will be using a composite pattern to direct the chain of command for the tick() and render() functions. Additionally, we will need to use the composite pattern to structure our entities classes tree, since they will be sharing similar data types.
 
