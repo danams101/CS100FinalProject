@@ -1,34 +1,47 @@
- > As you complete each section you **must** remove the prompt text. Every *turnin* of this project includes points for formatting of this README so keep it clean and keep it up to date. 
- > Prompt text is any lines beginning with "\>"
- > Replace anything between \<...\> with your project specifics and remove angle brackets. For example, you need to name your project and replace the header right below this line with that title (no angle brackets). 
-# Our Project Name
- > Your author list below should include links to all members GitHub (remove existing author).
+ # Space Adventure
  
- > Authors: \<[Jeffrey McDaniel](https://github.com/jmcda001)\>
+ Authors: 
+ - [Dana Savin](https://github.com/danams101)
+ - [Kevin Ni](https://github.com/Keeevini)
+ - [Fengchun Fan](https://github.com/FengchunFan)
  
- > You will be forming a group of **THREE** students and working on an interesting project. A list of proposed project ideas that have been successful in previous quarters is given in the project specifications link on iLearn. You can select an idea from the list and decide which design patterns you will use to implement it. If you want to propose your own original idea, you will have to contact an instructor to discuss the project and obtain written permission before you submit your project proposal. Your project needs to implement two design patterns.The project work should be divided almost equally among team members and each member is expected to work on at least one design pattern (more than one partner may work on a pattern) and some of its test cases. You can of course help each other, but it needs to be clear who will be responsible for which patterns and for which features.
- 
- > ## Expectations
- > * Incorporate **at least two** distinct design patterns. You need to include at least *one* design pattern that we will teach this session:
- >   * Composite, Strategy, Abstract Factory, Visitor, or Decorator
- > * All design patterns need to be linked together (it can't be two distinct projects)
- > * Your project should be implemented in C++. If you wish to choose anoher programming language (e.g. Java, Python), please discuss with your lab TA to obtain permission.
- > * You can incorporate additional technologies/tools but they must be approved (in writing) by the instructor or the TA.
- > * Each member of the group **must** be committing code regularly and make sure their code is correctly attributed to them. We will be checking attributions to determine if there was equal contribution to the project.
-> * All project phases are to be submitted to this GitHub repository. You should modify this README file to reflect the different phases of the project. In addition, you should regularly hold sprint meetings with your group.
 
 ## Project Description
- > Your project description should summarize the project you are proposing. Be sure to include
- > * Why is it important or interesting to you?
- > * What languages/tools/technologies do you plan to use? (This list may change over the course of the project)
- >   * [toolname](link) - Short description
- > * What will be the input/output of your project?
- > * What are the two design patterns you will be using? For each design pattern you must explain in 4-5 sentences:
- >   * Why you picked this pattern and what feature you will implement with it
- >   * What problem you anticipate encountering when implementing your project that you will solve using the design pattern
- >   * Why the chosen design pattern will lead to a good solution to that problem
- > * This description should be in enough detail that the TA/instructor can determine the complexity of the project and if it is sufficient for the team members to complete in the time allotted. 
 
+Our project is a Console based Role Playing Game.
+ 
+This project is interesting to us because it would allow us the opportunity to test our coding and design skills in a creative and challenging way. The nature of game design and storytelling would require clear communication and collaboration in our group, which is an important aspect of this project. And the inherent structure of a game lends well to the use and implementation of the design patterns we will learn this quarter.
+ 
+ ### Languages:
+ c++
+ ### tools:
+ Standard c++ library
+ 
+
+ ### Input:
+ Console Input
+ 
+ ### Output:
+ Console text in ASCII and colors
+ 
+ 
+ ## Design Pattern 1:
+ ### Abstract Factory - Creation
+
+There are multiple problems we will anticipate in order to solve with the abstract factory design pattern. One of them will be cross platform console graphics. In order to output color onto the console, it is different between windows and linux. Additionally, they also need to be compiled differently. Thus, an abstract factory can be used to separate the instances between OS for the UI. Additionally, we will have a massive tree of classes revolving around the same type, such as entities. We will need to have an abstract factory in order to minimize the linkage between header files to create a certain type of entity.
+
+ ## Design Pattern 2:
+ ### State - Behavioral
+We picked this because as we are making a game, we will need the game to load different behavior depending on where you are in the game. For example, a menu should be very different from a battle. Additionally, only one state can be loaded at a time, thus allowing us to use the state design pattern. The problem we anticipate encountering is our tick function. We do not need all the states to tick at the same time since during the menu, the “game state” should be paused. Thus, ticking all of the states at once will be a massive waste of resources. Thus, we will use the state design pattern to switch out the behavior of our “Game” instance.
+
+ ## Design Pattern 3:
+ ### Composite - Structural
+We will have many classes that require updating their logic and also rendering. Thus, this will require many classes to call the same tick() and render() function depending on the branch/state they are in. Thus, we will be using a composite pattern to direct the chain of command for the tick() and render() functions. Additionally, we will need to use the composite pattern to structure our entities classes tree, since they will be sharing similar data types.
+
+
+
+
+ 
  > ## Phase II
  > In addition to completing the "Class Diagram" section below, you will need to 
  > * Set up your GitHub project board as a Kanban board for the project. It should have columns that map roughly to 
