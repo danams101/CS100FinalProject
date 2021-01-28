@@ -14,7 +14,7 @@ This project is interesting to us because it would allow us the opportunity to t
  
  ### Languages:
  c++
- ### tools:
+ ### Tools:
  Standard c++ library
  
 
