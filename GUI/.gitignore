@@ -1,0 +1,4 @@
+main.o
+UIButton.o
+UIObjectComposite.o
+gui-test
