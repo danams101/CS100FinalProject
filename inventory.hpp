@@ -7,7 +7,13 @@ private:
 	int numMeat = 0;
 	int numMetal = 0;
 	int numSteels = 0;
-Public:
+public:
+	Inventory(){
+		numWood = 0;
+		numMeat = 0;
+		numMetal = 0;
+		numSteels = 0;
+}
 	void SetWood(){
 	numWood = 0;
 }
@@ -42,8 +48,8 @@ Public:
         int getnumMetal(){
         return numMetal;
 }
-        int getnumMetal(){
-        return numMetal;
+        int getnumSteels(){
+        return numSteels;
 }
 	
 };
