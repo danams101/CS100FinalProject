@@ -1,8 +1,6 @@
 #ifndef _INVENTORY_HPP_
 #define _INVENTORY_HPP_
 
-#include vector
-
 class Inventory{
 private:
 	int numWood = 0;
