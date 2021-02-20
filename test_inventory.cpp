@@ -17,6 +17,6 @@ int main(){
   Test2->SetWood(5.1);
   cout <<"number of Wood is set as 5.1, but we used int, expecting 5, getting: " << Test2->getnumWood()<<endl;
   //Test2->SetWood(a);
-  //cout <<"number of Wood is set as a, expecting 5, getting: " << Test2->getnumWood()<<endl;
+  //cout <<"number of Wood is set as a, expecting terminate, getting: " << Test2->getnumWood()<<endl;
   cout <<"The code for rest three object is identical to wood, so Ima just test wood :)" << endl;
 }
