@@ -13,7 +13,7 @@ int main(){
   Test2->SetWood();
   cout <<"number of Wood is set back to 0, expecting 0 getting: "<< Test2->getnumWood()<<endl;
   Test2->SetWood(-1);
-  cout <<"number of Wood is set as -1, expecting -1 getting: " << Test2->getnumMeat()<<endl;
+  cout <<"number of Wood is set as -1, expecting -1 getting: " << Test2->getnumWood()<<endl;
   Test2->SetWood(5.1);
   cout <<"number of Wood is set as 5.1, but we used int, expecting 5, getting: " << Test2->getnumWood()<<endl;
   //Test2->SetWood(a);
