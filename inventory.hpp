@@ -9,10 +9,10 @@ private:
 	int numSteels = 0;
 public:
 	Inventory(){
-		numWood = 0;
-		numMeat = 0;
-		numMetal = 0;
-		numSteels = 0;
+	  numWood = 0;
+	  numMeat = 0;
+          numMetal = 0;
+	  numSteels = 0;
 }
 	void SetWood(){
 	numWood = 0;
