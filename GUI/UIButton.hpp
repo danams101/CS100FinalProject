@@ -6,16 +6,28 @@
 class UIButton : public UIObject {
     public:
         //TODO: add variables for text size/color
-        UIButton(sf::Vector2f size, sf::Color color, sf::Vector2f pos);
+        UIButton(const std::string& buttonText, int textSize, sf::Vector2f buttonSize,
+                sf::Color textColor, sf::Color buttonColor);
 
         //virtual ~UIButton();
 
-        virtual void drawTo(sf::RenderWindow& window);
+        void setButtonColor(sf::Color color);
 
+        void setTextColor(sf::Color color);
+
+        void setFont(sf::Font& font);
+
+        void setPosition(sf::Vector2f pos);
+
+        bool isMouseOn(sf::RenderWindow& window);
+
+        void highlightBehavior(sf::RenderWindow& window);
+
+        virtual void drawTo(sf::RenderWindow& window);
 
     private:
         sf::RectangleShape rect;
-        //sf::Text
+        sf::Text text;
 
 };
 

@@ -17,17 +17,26 @@ int main() {
     window.setPosition(sf::Vector2i(500,50));
 
     //Load in fonts
-    
+    sf::Font font;
+    if(!font.loadFromFile("UbuntuMono-R.ttf")){
+        //error
+    }
 
     //load background textures
 
     //create objects
     UIObjectComposite* comp = new UIObjectComposite();
-    UIObject* b1 = new UIButton(sf::Vector2f(100, 50), sf::Color::Green, sf::Vector2f(100,100));
-    UIObject* b2 = new UIButton(sf::Vector2f(75, 25), sf::Color::White, sf::Vector2f(110,110));
-    UIObject* b3 = new UIButton(sf::Vector2f(36, 12), sf::Color::Blue, sf::Vector2f(120,120));
+    UIButton* b1 = new UIButton("hi", 24, sf::Vector2f(100, 50), sf::Color::Black, sf::Color::Green);
+    UIButton* b2 = new UIButton("CLICK", 24, sf::Vector2f(100, 50), sf::Color::Black, sf::Color::Green);
+    //UIObject* b3 = new UIButton(sf::Vector2f(36, 12), sf::Color::Blue, sf::Vector2f(120,120));
 
-    comp->Add(b3);
+    b1->setFont(font);
+    b2->setFont(font);
+
+    b1->setPosition(sf::Vector2f(100,100));
+    b2->setPosition(sf::Vector2f(210,100));
+
+    //comp->Add(b3);
     comp->Add(b2);
     comp->Add(b1);
     
@@ -43,6 +52,11 @@ int main() {
             switch(event.type){
                 case sf::Event::Closed:
                     window.close();
+                    break;
+                
+                case sf::Event::MouseMoved:
+                    b2->highlightBehavior(window);
+                    b1->highlightBehavior(window);
 
                 //other cases; mouse moved, button clicked, etc.
                 //Note: most of this would go in the state classes
@@ -56,6 +70,8 @@ int main() {
 
         //draw things here
         comp->drawTo(window);
+        // b1->drawTo(window);
+        // b2->drawTo(window);
 
         //display every frame
         window.display();
