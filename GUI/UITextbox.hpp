@@ -8,11 +8,17 @@
 class UITextbox : public UIObject {
     public:
 
-        UITextbox();
+        UITextbox(int textSize, sf::Color color, bool isSelected);
 
         void setTextColor(sf::Color color);
         void setFont(sf::Font& font);
         void setPosition(sf::Vector2f pos);
+
+        void setSelection(bool ToF);
+        std::string getText();
+        void typedOn(sf::Event textEntered);
+
+        virtual void drawTo(sf::RenderWindow& window);
 
 
     private:
