@@ -49,11 +49,11 @@ bool UIButton::isMouseOn(sf::RenderWindow& window){
 
 void UIButton::highlightBehavior(sf::RenderWindow& window){
     if(this->isMouseOn(window)){
-                        this->setButtonColor(sf::Color::White);
-                    }
-                    else{
-                        this->setButtonColor(sf::Color::Green);
-                    }
+        this->setButtonColor(sf::Color::White);
+    }
+    else{
+        this->setButtonColor(sf::Color::Green);
+    }
 }
 
 void UIButton::drawTo(sf::RenderWindow& window) {
