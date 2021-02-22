@@ -5,6 +5,7 @@
 #include "UIObjectComposite.hpp"
 #include "UIButton.hpp"
 #include "UITextbox.hpp"
+#include "UIDisplayText.hpp"
 
 int main() {
     // Create the window using a sf::RenderWindow and set frame rate and position.
@@ -27,10 +28,16 @@ int main() {
 
     //create objects
     UIObjectComposite* comp = new UIObjectComposite();
-    UIButton* b1 = new UIButton("hi", 24, sf::Vector2f(100, 50), sf::Color::Black, sf::Color::Green);
+    UIButton* b1 = new UIButton("hi\nhello", 12, sf::Vector2f(100, 50), sf::Color::Black, sf::Color::Green);
     UIButton* b2 = new UIButton("CLICK", 24, sf::Vector2f(100, 50), sf::Color::Black, sf::Color::Green);
     //UIObject* b3 = new UIButton(sf::Vector2f(36, 12), sf::Color::Blue, sf::Vector2f(120,120));
     UITextbox* t = new UITextbox(24, sf::Color::Green, false, 16);
+
+    UIDisplayText* disT = new UIDisplayText("This is a really long string to test.", 20, 10, sf::Color::Green);
+    disT->setFont(font);
+    //disT->setBoundingBoxColor(sf::Color::Green);
+    disT->setPosition(sf::Vector2f(200,200));
+
 
     b1->setFont(font);
     b2->setFont(font);
@@ -44,6 +51,7 @@ int main() {
     comp->Add(b2);
     comp->Add(b1);
     comp->Add(t);
+    comp->Add(disT);
     
 
     //Game loop

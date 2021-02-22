@@ -6,22 +6,19 @@
 class UIDisplayText : public UIObject {
     public:
 
-        UIDisplayText(const std::string& s, int textSize, sf::Vector2f boundingBoxSize, sf::Color textColor);
+        UIDisplayText(const std::string& s, int textSize, int lim, sf::Color textColor);
 
         void setTextColor(sf::Color color);
         void setFont(sf::Font& font);
         void setPosition(sf::Vector2f pos);
 
-        //for testing the text bounding box
-        void setBoundingBoxColor(sf::Color color);
-
         virtual void drawTo(sf::RenderWindow& window);
 
     private:
         sf::Text text;
-        sf::RectangleShape boundingBox;
+        int charLimit;
 
-        //Need to add
+        //NOTE: I want to make a better text wrapping function if there is time.
         void textWrappingLogic();
 
 };
