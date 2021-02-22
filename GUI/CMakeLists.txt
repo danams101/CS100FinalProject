@@ -6,6 +6,7 @@ ADD_EXECUTABLE( gui
     main.cpp
     UIButton.cpp
     UIObjectComposite.cpp
+    UITextbox.cpp
 )
 
 TARGET_LINK_LIBRARIES(gui sfml-graphics sfml-window sfml-system)

@@ -8,7 +8,7 @@
 class UITextbox : public UIObject {
     public:
 
-        UITextbox(int textSize, sf::Color color, bool isSelected);
+        UITextbox(int textSize, sf::Color color, bool isSelected, int charLimit);
 
         void setTextColor(sf::Color color);
         void setFont(sf::Font& font);
