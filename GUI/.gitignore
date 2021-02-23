@@ -1,0 +1,10 @@
+main.o
+UIButton.o
+UIObjectComposite.o
+gui-test
+
+CMakeCache.txt
+CMakeFiles/
+Makefile
+cmake_install.cmake
+gui
