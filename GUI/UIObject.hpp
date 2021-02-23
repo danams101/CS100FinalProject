@@ -15,14 +15,16 @@ class UIObject {
         //composite implement
         virtual void Add(UIObject* obj) {}
         virtual void Remove(UIObject* obj) {}
+
+        //Note: Might need later.
         //virtual UIObject* GetChild(int objNum) {}
-        //virtual std::iterator<UIObject*>* CreateIterator();
 
         //Leaf and coomposite implement
         virtual void drawTo(sf::RenderWindow& window) = 0;
 
     private:
         //not sure of private variables yet
+        //Note: Might need a label string later.
 };
 
 #endif //_UIOBJECT_HPP_

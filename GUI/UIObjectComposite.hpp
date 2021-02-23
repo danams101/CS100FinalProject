@@ -6,12 +6,17 @@
 
 class UIObjectComposite : public UIObject{
     public:
+        //Constructor
         UIObjectComposite();
 
+        //Destructor
         virtual ~UIObjectComposite();
 
+        //Virtual functions
         virtual void Add(UIObject* obj);
         virtual void Remove(UIObject* obj);
+
+        //Note: We might need a method to access object in a composite later.
         //virtual UIObject* GetChild(int objNum);
 
         virtual void drawTo(sf::RenderWindow& window);

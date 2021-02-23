@@ -7,6 +7,8 @@ UITextbox::UITextbox(int textSize, sf::Color color, bool isSel, int charLimit){
     Initializes everything.
     A selected textbox is indicated by an underscore appearing.
     Note: A textbox is selected by pressing TAB.
+          and deselected by pressing ENTER.
+          This is implemented in main, might make that a function later.
     */
     textbox.setCharacterSize(textSize);
     textbox.setFillColor(color);

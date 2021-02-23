@@ -5,10 +5,10 @@
 
 class UIStatBar : public UIObject {
     public:
-        // Sets the size of statBar, wheather its active or not, and the timer duration.
+        //Constructor
         UIStatBar(sf::Vector2f barSize, bool active, float duration);
 
-        // Setter functions
+        //Setter functions
         void setColor(sf::Color color);
         void setPosition(sf::Vector2f pos);
         void setActivation(bool active);
@@ -16,6 +16,7 @@ class UIStatBar : public UIObject {
         // Function to return progress, might need it later.
         float getProgress();
 
+        //Virtual function from UIObject class
         virtual void drawTo(sf::RenderWindow& window);
 
     private:
