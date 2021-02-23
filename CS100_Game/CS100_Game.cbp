@@ -43,7 +43,16 @@
 		<Linker>
 			<Add directory="lib/SFML/lib" />
 		</Linker>
-		<Unit filename="src/main.cpp" />
+		<Unit filename="src/Game.cpp" />
+		<Unit filename="src/Game.h" />
+		<Unit filename="src/GraphicsSettings.cpp" />
+		<Unit filename="src/GraphicsSettings.h" />
+		<Unit filename="src/launcher.cpp" />
+		<Unit filename="src/states/MainMenuState.cpp" />
+		<Unit filename="src/states/MainMenuState.h" />
+		<Unit filename="src/states/State.cpp" />
+		<Unit filename="src/states/State.h" />
+		<Unit filename="src/stdafx.h" />
 		<Extensions />
 	</Project>
 </CodeBlocks_project_file>
