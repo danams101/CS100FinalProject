@@ -6,6 +6,7 @@
 #include "UIButton.hpp"
 #include "UITextbox.hpp"
 #include "UIDisplayText.hpp"
+#include "UIStatBar.hpp"
 
 int main() {
     // Create the window using a sf::RenderWindow and set frame rate and position.
@@ -33,7 +34,13 @@ int main() {
     //UIObject* b3 = new UIButton(sf::Vector2f(36, 12), sf::Color::Blue, sf::Vector2f(120,120));
     UITextbox* t = new UITextbox(24, sf::Color::Green, false, 16);
 
-    UIDisplayText* disT = new UIDisplayText("This is a really long string to test.", 20, 10, sf::Color::Green);
+    UIStatBar* statbar = new UIStatBar(sf::Vector2f(100, 20), true, 10);
+    statbar->setColor(sf::Color::Green);
+    statbar->setPosition(sf::Vector2f(400, 200));
+
+
+
+    UIDisplayText* disT = new UIDisplayText("This is a really long string to test.", 20, 16, sf::Color::Green);
     disT->setFont(font);
     //disT->setBoundingBoxColor(sf::Color::Green);
     disT->setPosition(sf::Vector2f(200,200));
@@ -56,8 +63,12 @@ int main() {
 
     //Game loop
 
+    sf::Clock clock;
+
     while(window.isOpen()){
         //check events
+
+        sf::Time dt = clock.restart();
 
         sf::Event event;
 
@@ -96,10 +107,14 @@ int main() {
         comp->drawTo(window);
         // b1->drawTo(window);
         // b2->drawTo(window);
+        statbar->drawTo(window);
 
         //display every frame
         window.display();
     }
+
+    delete comp;
+    delete statbar;
 
     return 0;
 }

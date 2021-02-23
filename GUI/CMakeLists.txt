@@ -8,6 +8,7 @@ ADD_EXECUTABLE( gui
     UIObjectComposite.cpp
     UITextbox.cpp
     UIDisplayText.cpp
+    UIStatBar.cpp
 )
 
 TARGET_LINK_LIBRARIES(gui sfml-graphics sfml-window sfml-system)
