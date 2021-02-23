@@ -5,13 +5,15 @@
 
 class UIDisplayText : public UIObject {
     public:
-
+        //Constructor
         UIDisplayText(const std::string& s, int textSize, int lim, sf::Color textColor);
 
+        //setters
         void setTextColor(sf::Color color);
         void setFont(sf::Font& font);
         void setPosition(sf::Vector2f pos);
 
+        //virtual function from UIObject class
         virtual void drawTo(sf::RenderWindow& window);
 
     private:
@@ -19,7 +21,7 @@ class UIDisplayText : public UIObject {
         int charLimit;
 
         //NOTE: I want to make a better text wrapping function if there is time.
-        void textWrappingLogic();
+        //void textWrappingLogic();
 
 };
 
