@@ -11,14 +11,14 @@ void Game::initVariables() {
 	this->dt = 0.f;
 }
 
-//Load in gfxSettings
+// Load in gfxSettings
 void Game::initGraphicsSettings() {
 	/* Load in graphics settings */
 
 	this->gfxSettings.loadFromFile(this->gfxFile);
 }
 
-//Initialize window settings
+// Initialize window settings
 void Game::initWindow() {
 	/*Creates a SFML window. */
 
@@ -67,8 +67,9 @@ void Game::initKeys() {
 	// }
 }
 
+// Initialize the global data
 void Game::initGlobalData() {
-	/* To do later */
+	/* Sets the global data to pass into the other states */
 
 	this->globalData.window = this->window;
 	this->globalData.gfxSettings = &this->gfxSettings;

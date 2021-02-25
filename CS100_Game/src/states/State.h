@@ -1,7 +1,7 @@
 #ifndef STATE_H
 #define STATE_H
 
-#include "../GraphicsSettings.h"
+#include "../gfx/GraphicsSettings.h"
 
 class GraphicsSettings;
 class State;

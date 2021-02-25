@@ -1,25 +1,25 @@
-#ifndef _UIOBJECTCOMPOSITE_HPP_
-#define _UIOBJECTCOMPOSITE_HPP_
+#ifndef _UIList_HPP_
+#define _UIList_HPP_
 
 #include "UIObject.hpp"
 #include <list>
 
-class UIObjectComposite : public UIObject{
+class UIList : public UIObject{
     public:
         //Constructor
-        UIObjectComposite();
+        UIList();
 
         //Destructor
-        virtual ~UIObjectComposite();
+        virtual ~UIList();
 
         //Virtual functions
-        virtual void Add(UIObject* obj);
-        virtual void Remove(UIObject* obj);
+        virtual void add(UIObject* obj);
+        virtual void remove(UIObject* obj);
 
         //Note: We might need a method to access object in a composite later.
         //virtual UIObject* GetChild(int objNum);
 
-        virtual void drawTo(sf::RenderWindow& window);
+        virtual void render(sf::RenderWindow& window);
 
     private:
         std::list<UIObject*> objects;

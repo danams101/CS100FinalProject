@@ -37,6 +37,17 @@ void MainMenuState::initKeybinds() {
 	// ifs.close();
 }
 
+// Initialize UI
+void MainMenuState::initUI() {
+	/* Making the UI for main menu */
+	
+	uiList = new UIList();
+	
+	uiList.add(new UIDisplayText("A game", 20, 0, sf::Color::White);
+	
+	uiList.add(
+}
+
 //Constructors/Destructors
 MainMenuState::MainMenuState(GlobalData* global_data) : State(global_data) {
 	this->initVariables();

@@ -14,11 +14,13 @@ class MainMenuState : public State {
 
 		//Variables
 		sf::Font font;
+		UIList uiList;
 
 		//Functions
 		void initVariables();
 		void initFonts();
 		void initKeybinds();
+		void initUI();
 
 	public:
 		MainMenuState(GlobalData* global_data);
