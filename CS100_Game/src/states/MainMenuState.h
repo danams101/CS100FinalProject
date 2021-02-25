@@ -11,14 +11,20 @@ class MainMenuState : public State {
 
 		//Resources needed
 		const std::string keybindFile = "res/config/keybinds_mainmenustate.ini";
+		const std::string defaultFontFile = "res/fonts/UbuntuMono-R.ttf";
 
 		//Variables
-		sf::Font font;
+		std::map<std::string, sf::Font> fonts;
 		UIList uiList;
+		std::map<std::string, UIButton*> buttons;
+		
+		std::map<std::string, sf::Color> defaultTheme;
+		std::map<std::string, sf::Color> debugTheme;
 
-		//Functions
+		/* Initializer Functions */
 		void initVariables();
 		void initFonts();
+		void initColors();
 		void initKeybinds();
 		void initUI();
 
@@ -26,9 +32,13 @@ class MainMenuState : public State {
 		MainMenuState(GlobalData* global_data);
 		virtual ~MainMenuState();
 
-		//Functions
-		void updateInput(const float& dt);
-		void update(const float& dt);
+		/* Functions */
+		void resetUI();
+		
+		// Tick and render
+		void updateButtons();
+		void updateKeyInput();
+		void tick(const float& dt);
 		void render(sf::RenderTarget* target = NULL);
 };
 
