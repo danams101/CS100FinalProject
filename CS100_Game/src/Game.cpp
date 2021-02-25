@@ -1,7 +1,7 @@
 #include "stdafx.h"
 #include "Game.h"
 
-// Initialization Functions
+/* Initializer Functions */
 
 // Initialize variables
 void Game::initVariables() {
@@ -11,14 +11,14 @@ void Game::initVariables() {
 	this->dt = 0.f;
 }
 
-//Load in gfxSettings
+// Load in gfxSettings
 void Game::initGraphicsSettings() {
 	/* Load in graphics settings */
 
 	this->gfxSettings.loadFromFile(this->gfxFile);
 }
 
-//Initialize window settings
+// Initialize window settings
 void Game::initWindow() {
 	/*Creates a SFML window. */
 
@@ -41,24 +41,23 @@ void Game::initWindow() {
 	this->window->setVerticalSyncEnabled(this->gfxSettings.verticalSync);
 }
 
-// To do later
+// Initialize supported keys
 void Game::initKeys() {
-	/* To do later */
+	
+	std::ifstream ifs(this->supportedKeysFile);
 
-	// std::ifstream ifs("Config/supported_keys.ini");
+	if (ifs.is_open())
+	{
+		std::string key = "";
+		int key_value = 0;
 
-	// if (ifs.is_open())
-	// {
-		// std::string key = "";
-		// int key_value = 0;
+		while (ifs >> key >> key_value)
+		{
+			this->supportedKeys[key] = key_value;
+		}
+	}
 
-		// while (ifs >> key >> key_value)
-		// {
-			// this->supportedKeys[key] = key_value;
-		// }
-	// }
-
-	// ifs.close();
+	ifs.close();
 
 	// DEBUG REMOVE LATER!
 	// for (auto i : this->supportedKeys)
@@ -67,12 +66,13 @@ void Game::initKeys() {
 	// }
 }
 
+// Initialize the global data
 void Game::initGlobalData() {
-	/* To do later */
+	/* Sets the global data to pass into the other states */
 
 	this->globalData.window = this->window;
 	this->globalData.gfxSettings = &this->gfxSettings;
-	// this->globalData.supportedKeys = &this->supportedKeys;
+	this->globalData.supportedKeys = &this->supportedKeys;
 	this->globalData.states = &this->states;
 }
 
@@ -83,7 +83,7 @@ void Game::initStates() {
 	this->states.push(new MainMenuState(&this->globalData));
 }
 
-// Constructors/Destructors
+/* Constructors/Destructors */
 Game::Game() {
 
 	this->initVariables();
@@ -104,7 +104,7 @@ Game::~Game() {
 	}
 }
 
-// Functions
+/* Functions */
 
 // End application
 void Game::endApplication() {
@@ -131,8 +131,8 @@ void Game::updateSFMLEvents() {
 	}
 }
 
-// Main update function
-void Game::update() {
+// Main tick function
+void Game::tick() {
 	/* Will update SFML Events and top most state.
 	If no states, will end application */
 
@@ -142,7 +142,7 @@ void Game::update() {
 	{
 		if (this->window->hasFocus())
 		{
-			this->states.top()->update(this->dt);
+			this->states.top()->tick(this->dt);
 
 			if (this->states.top()->getQuit())
 			{
@@ -182,7 +182,7 @@ void Game::run() {
 	while (this->window->isOpen())
 	{
 		this->updateDt();
-		this->update();
+		this->tick();
 		this->render();
 	}
 }

@@ -6,10 +6,11 @@
 class Game {
 	private:
 
-		//Resources needed
+		// Resources needed
 		const std::string gfxFile = "res/config/graphics.ini";
+		const std::string supportedKeysFile = "res/config/supported_keys.ini";
 
-		// Variables
+		/* Variables */
 		GraphicsSettings gfxSettings;
 		GlobalData globalData;
 		sf::RenderWindow *window;
@@ -22,7 +23,7 @@ class Game {
 
 		std::map<std::string, int> supportedKeys;
 
-		// Initialization
+		/* Initializer Functions */
 		void initVariables();
 		void initGraphicsSettings();
 		void initWindow();
@@ -32,17 +33,17 @@ class Game {
 
 	public:
 
-		// Constructors/Destructors
+		/* Constructors/Destructors */
 		Game();
 		virtual ~Game();
 
-		// Functions
+		/* Functions */
 		void endApplication();
 
-		// Update
+		// Tick
 		void updateDt();
 		void updateSFMLEvents();
-		void update();
+		void tick();
 
 		// Render
 		void render();

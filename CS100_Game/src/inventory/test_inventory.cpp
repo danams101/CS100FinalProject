@@ -2,11 +2,11 @@
 #include "inventory.hpp"
 using namespace std;
 
-int main(){
+int test(){
   Inventory* Test1 = new Inventory();
   cout << "Testing constructor, everything shall be set as 0, number of Wood: " << Test1->getnumWood() << ", number of Meat: " << Test1->getnumMeat();
   cout << ", number of Metal: " << Test1->getnumMetal() << ", number of Steels: " << Test1->getnumSteels() << endl;
-  
+
   Inventory* Test2 = new Inventory();
   Test2->SetWood(5);
   cout <<"number of Wood is set as 5, expecting 5 getting: "<< Test2->getnumWood()<<endl;

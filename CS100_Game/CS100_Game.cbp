@@ -45,8 +45,18 @@
 		</Linker>
 		<Unit filename="src/Game.cpp" />
 		<Unit filename="src/Game.h" />
-		<Unit filename="src/GraphicsSettings.cpp" />
-		<Unit filename="src/GraphicsSettings.h" />
+		<Unit filename="src/gfx/GraphicsConverter.cpp" />
+		<Unit filename="src/gfx/GraphicsConverter.h" />
+		<Unit filename="src/gfx/GraphicsSettings.cpp" />
+		<Unit filename="src/gfx/GraphicsSettings.h" />
+		<Unit filename="src/gui/UIButton.cpp" />
+		<Unit filename="src/gui/UIButton.h" />
+		<Unit filename="src/gui/UIList.cpp" />
+		<Unit filename="src/gui/UIList.h" />
+		<Unit filename="src/gui/UIObject.cpp" />
+		<Unit filename="src/gui/UIObject.h" />
+		<Unit filename="src/inventory/inventory.hpp" />
+		<Unit filename="src/inventory/test_inventory.cpp" />
 		<Unit filename="src/launcher.cpp" />
 		<Unit filename="src/states/MainMenuState.cpp" />
 		<Unit filename="src/states/MainMenuState.h" />

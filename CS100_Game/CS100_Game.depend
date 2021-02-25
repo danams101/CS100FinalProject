@@ -1,10 +1,10 @@
 # depslib dependency file v1.0
-1613958242 source:c:\users\kevin\storage\cs\cs100\final-project-powerrangers\cs100_game\src\launcher.cpp
+1614053908 source:c:\users\kevin\storage\cs\cs100\final-project-powerrangers\cs100_game\src\launcher.cpp
 	"stdafx.h"
 	"Game.h"
 	<Windows.h>
 
-1613958045 c:\users\kevin\storage\cs\cs100\final-project-powerrangers\cs100_game\src\stdafx.h
+1614053908 c:\users\kevin\storage\cs\cs100\final-project-powerrangers\cs100_game\src\stdafx.h
 	<algorithm>
 	<deque>
 	<iostream>
@@ -429,14 +429,67 @@
 	<SFML/Graphics/Drawable.hpp>
 	<SFML/Window/GlResource.hpp>
 
-1614053633 c:\users\kevin\storage\cs\cs100\final-project-powerrangers\cs100_game\src\game.h
+1614238704 c:\users\kevin\storage\cs\cs100\final-project-powerrangers\cs100_game\src\game.h
 	"states/MainMenuState.h"
 
-1614052963 c:\users\kevin\storage\cs\cs100\final-project-powerrangers\cs100_game\src\states\mainmenustate.h
+1614238633 c:\users\kevin\storage\cs\cs100\final-project-powerrangers\cs100_game\src\states\mainmenustate.h
 	"State.h"
 
-1614053640 c:\users\kevin\storage\cs\cs100\final-project-powerrangers\cs100_game\src\states\state.h
-	"../GraphicsSettings.h"
+1614239148 c:\users\kevin\storage\cs\cs100\final-project-powerrangers\cs100_game\src\states\state.h
+	"../gfx/GraphicsSettings.h"
+	"../gfx/GraphicsConverter.h"
+	"../gui/UIList.h"
+	"../gui/UIButton.h"
 
 1614053660 c:\users\kevin\storage\cs\cs100\final-project-powerrangers\cs100_game\src\graphicssettings.h
+
+1614236985 source:c:\users\kevin\storage\cs\cs100\final-project-powerrangers\cs100_game\src\game.cpp
+	"stdafx.h"
+	"Game.h"
+
+1614222302 c:\users\kevin\storage\cs\cs100\final-project-powerrangers\cs100_game\src\gfx\graphicssettings.h
+
+1614223646 c:\users\kevin\storage\cs\cs100\final-project-powerrangers\cs100_game\src\gfx\graphicsconverter.h
+
+1614221496 c:\users\kevin\storage\cs\cs100\final-project-powerrangers\cs100_game\src\gui\uilist.h
+	"UIObject.h"
+
+1614219774 c:\users\kevin\storage\cs\cs100\final-project-powerrangers\cs100_game\src\gui\uiobject.h
+
+1614226700 c:\users\kevin\storage\cs\cs100\final-project-powerrangers\cs100_game\src\gui\uibutton.h
+	"UIObject.h"
+
+1614224608 source:c:\users\kevin\storage\cs\cs100\final-project-powerrangers\cs100_game\src\gfx\graphicsconverter.cpp
+	"../stdafx.h"
+	"GraphicsConverter.h"
+
+1614153936 source:c:\users\kevin\storage\cs\cs100\final-project-powerrangers\cs100_game\src\gfx\graphicssettings.cpp
+	"../stdafx.h"
+	"GraphicsSettings.h"
+
+1614235580 source:c:\users\kevin\storage\cs\cs100\final-project-powerrangers\cs100_game\src\gui\uibutton.cpp
+	"../stdafx.h"
+	"UIButton.h"
+
+1614221531 source:c:\users\kevin\storage\cs\cs100\final-project-powerrangers\cs100_game\src\gui\uilist.cpp
+	"../stdafx.h"
+	"UIList.h"
+
+1614219425 source:c:\users\kevin\storage\cs\cs100\final-project-powerrangers\cs100_game\src\gui\uiobject.cpp
+	"../stdafx.h"
+	"UIObject.h"
+
+1614139761 source:c:\users\kevin\storage\cs\cs100\final-project-powerrangers\cs100_game\src\inventory\test_inventory.cpp
+	<iostream>
+	"inventory.hpp"
+
+1614139761 c:\users\kevin\storage\cs\cs100\final-project-powerrangers\cs100_game\src\inventory\inventory.hpp
+
+1614239107 source:c:\users\kevin\storage\cs\cs100\final-project-powerrangers\cs100_game\src\states\mainmenustate.cpp
+	"../stdafx.h"
+	"MainMenuState.h"
+
+1614239100 source:c:\users\kevin\storage\cs\cs100\final-project-powerrangers\cs100_game\src\states\state.cpp
+	"../stdafx.h"
+	"State.h"
 

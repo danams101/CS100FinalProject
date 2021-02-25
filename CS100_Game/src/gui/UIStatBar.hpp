@@ -1,7 +1,7 @@
 #ifndef _UISTATBAR_HPP_
 #define _UISTATBAR_HPP_
 
-#include "UIObject.hpp"
+#include "UIObject.h"
 
 class UIStatBar : public UIObject {
     public:
@@ -28,7 +28,7 @@ class UIStatBar : public UIObject {
         float timerDuration;
 
         bool isActivated;
-        
+
         // A private function for now because it is called in the drawTo function.
         // Can be moved to public later, to have updateProgress control outside class.
         // For now its just a timer/progress bar.

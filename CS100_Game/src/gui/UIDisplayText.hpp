@@ -6,7 +6,7 @@
 class UIDisplayText : public UIObject {
     public:
         //Constructor
-        UIDisplayText(const std::string& s, int textSize, int lim, sf::Color textColor);
+        UIDisplayText(const std::string& s, int textSize, int lim = 0, sf::Color textColor);
 
         //setters
         void setTextColor(sf::Color color);
