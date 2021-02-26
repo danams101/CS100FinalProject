@@ -1,3 +1,7 @@
+//#include <map>
+//#include <SFML/system.hpp>
+//#include <SFML/window.hpp>
+//#include <SFML/graphics.hpp>
 #include "../stdafx.h"
 #include "UIButton.h"
 

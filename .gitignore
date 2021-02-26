@@ -3,3 +3,14 @@
 # CS100_Game Project Build Files
 
 CS100_Game/build/
+
+#CMakeFiles
+
+CMakeCache.txt
+CMakeFiles/
+Makefile
+cmake_install.cmake
+lib/
+
+#executables
+test
