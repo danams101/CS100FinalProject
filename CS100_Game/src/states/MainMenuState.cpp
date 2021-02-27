@@ -29,7 +29,7 @@ void MainMenuState::initColors() {
 	/* Implementation to load in colors
 	In the future, should be able to load multiple themes
 	Using a gfx loader class from a .ini file */
-
+	
 	// Set default theme colors
 	this->debugTheme["idleColor"] = sf::Color::White;
 	this->debugTheme["hoverColor"] = sf::Color::Yellow;
@@ -47,6 +47,11 @@ void MainMenuState::initColors() {
 void MainMenuState::initKeybinds() {
 
 	std::ifstream ifs(keybindFile);
+
+	//DEBUG
+	if(!ifs.is_open()){
+		std::cout << "Keybinds not opened!" << "\n";
+	}
 
 	if (ifs.is_open())
 	{

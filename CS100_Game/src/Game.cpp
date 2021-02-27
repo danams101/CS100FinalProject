@@ -46,6 +46,11 @@ void Game::initKeys() {
 	
 	std::ifstream ifs(this->supportedKeysFile);
 
+	//DEBUG- Files were not opening at first.
+	if(!ifs.is_open()){
+		std::cout << "Supported keys file NOT opened!!" << "\n";
+	}
+
 	if (ifs.is_open())
 	{
 		std::string key = "";
