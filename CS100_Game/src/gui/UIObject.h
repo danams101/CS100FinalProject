@@ -1,6 +1,8 @@
 #ifndef _UIOBJECT_H_
 #define _UIOBJECT_H_
 
+#include "../stdafx.h"
+
 class UIObject {
     
 	protected:
