@@ -7,6 +7,7 @@
 #include "../gui/UIButton.h"
 
 #include "../gui/UIStatBar.h"
+#include "../gui/UIDisplayText.h"
 
 class GraphicsSettings;
 class State;

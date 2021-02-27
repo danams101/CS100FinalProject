@@ -16,9 +16,6 @@ class UIStatBar : public UIObject {
 
         std::map<std::string, sf::Color> colors;
 
-        // A private function for now because it is called in the drawTo function.
-        // Can be moved to public later, to have updateProgress control outside class.
-        // For now its just a timer/progress bar.
     public:
         //Constructor
         UIStatBar(float x, float y, float width, float height, std::map<std::string, sf::Color> colors, float duration, bool activated = false);

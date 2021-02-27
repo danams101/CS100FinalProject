@@ -8,8 +8,6 @@ UIStatBar::UIStatBar(float x, float y, float width, float height, std::map<std::
     */
 
     bar.setSize(sf::Vector2f(width, height));
-    //barLength = barSize.x;
-    //isActivated = active;
 
     this->activated = activated;
     this->barLength = width;
@@ -89,9 +87,6 @@ void UIStatBar::updateProgress(const float& dt){
     
     
     if (activated){
-        //time between frames
-        //sf::Time dt = clock.restart();
-
         //keeps track of time, so the bar updates by 1 pixel per time interval
         timer += dt;
         
@@ -106,7 +101,6 @@ void UIStatBar::updateProgress(const float& dt){
 // Render the StatBar
 void UIStatBar::renderStatBar(sf::RenderTarget* target){
     bar.setFillColor(this->colors["idleColor"]);
-    //bar.setSize(sf::Vector2f(this->width, this->height));
     bar.setPosition(this->x, this->y);
 
     target->draw(bar);

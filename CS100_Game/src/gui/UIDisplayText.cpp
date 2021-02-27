@@ -1,38 +1,81 @@
-#include "UIDisplayText.hpp"
+#include "UIDisplayText.h"
 
-// Sets the display text, the text size, a limint on charaters and the text color.
-UIDisplayText::UIDisplayText(const std::string& s, int textSize, int lim, sf::Color textColor){
+/* Constructors/Destructors */
+UIDisplayText::UIDisplayText(float x, float y, std::map<std::string, sf::Color> colors,std::string text, int textSize, sf::Font* font, bool limit, int charLimit)
+ : UIObject(x, y, width, height){
     /*
     Note: charLim is for a text wrapping algo we might implement later.
     */
-    charLimit = lim;
-    text.setString(s);
-    text.setCharacterSize(textSize);
-    text.setFillColor(textColor);
+
+   this->colors = colors;
+   this->hasLimit = limit;
+   this->charLimit = charLimit;
+
+   this->font = font;
+
+   this->text.setString(text);
+   this->text.setCharacterSize(textSize); 
+   this->text.setFont(*this->font);
 
     //textWrappingLogic();
 
 }
 
-// Sets text color.
-void UIDisplayText::setTextColor(sf::Color color){
-    text.setFillColor(color);
+UIDisplayText::~UIDisplayText(){
+
 }
 
-// Sets font, must be set when called.
-void UIDisplayText::setFont(sf::Font& font){
-    text.setFont(font);
+/* Accessors */
+bool UIDisplayText::hasCharLimit(){
+    return hasLimit;
+}
+int UIDisplayText::getCharLimit(){
+    return charLimit;
 }
 
-// Sets position, must be set when called.
-void UIDisplayText::setPosition(sf::Vector2f pos){
-    text.setPosition(pos);
+std::string UIDisplayText::getText(){
+    return this->text.getString();
 }
 
-// Draws object to the window.
-void UIDisplayText::drawTo(sf::RenderWindow& window){
-    window.draw(text);
+/* Functions */
+
+void UIDisplayText::setText(std::string text){
+    this->text.setString(text);
 }
+void UIDisplayText::setColor(std::string colorName, sf::Color color){
+    this->colors[colorName] = color;
+}
+void UIDisplayText::setColors(std::map<std::string, sf::Color> colors){
+    this->colors = colors;
+}
+void UIDisplayText::setFont(sf::Font* font){
+    this->font = font;
+}
+
+// Override from UIObject
+void UIDisplayText::setPostition(float x, float y){
+    this->bounds.setPosition(sf::Vector2f(x, y));
+}
+
+//Ticks and Render
+//void updateSomthing(), nothing to update at the moment
+void UIDisplayText::renderDisplayText(sf::RenderTarget* target){
+    text.setFillColor(this->colors["idleColor"]);
+    text.setPosition(this->x, this->y);
+
+    target->draw(this->text);
+}
+
+//Virtual finctions from UIObject
+void UIDisplayText::tick(const float& dt, sf::Window* window){
+    updateBounds();
+}
+void UIDisplayText::render(sf::RenderTarget* target){
+    renderDisplayText(target);
+
+    renderBounds(target);
+}
+
 
 // Text wrapping logic, might fix later.
 /*
