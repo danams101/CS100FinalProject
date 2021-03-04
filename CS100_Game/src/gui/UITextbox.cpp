@@ -1,8 +1,9 @@
-#include "UITextbox.hpp"
+#include "UITextbox.h"
 
 // Sets text size, the color of text, default selection (if the user can type in it),
 // and the charater limit.
-UITextbox::UITextbox(int textSize, sf::Color color, bool isSel, int charLimit){
+UITextbox::UITextbox(float x, float y, std::map<std::string, sf::Color> colors, int textSize, sf::Font* font, bool selected, int limit)
+ : UIObject(x, y, width, height){
     /*
     Initializes everything.
     A selected textbox is indicated by an underscore appearing.
@@ -10,12 +11,18 @@ UITextbox::UITextbox(int textSize, sf::Color color, bool isSel, int charLimit){
           and deselected by pressing ENTER.
           This is implemented in main, might make that a function later.
     */
-    textbox.setCharacterSize(textSize);
-    textbox.setFillColor(color);
-    isSelected = isSel;  
-    limit = charLimit; 
 
-    if(isSelected){
+    this->colors = colors;
+    this->font = font;
+    this->selected = selected;
+    this->limit = limit;
+
+    textbox.setCharacterSize(textSize);
+    textbox.setFont(*this->font);
+
+    //textbox.setFillColor(sf::Color(10,230,10));
+
+    if(selected){
         textbox.setString("_");
     }
     else{
@@ -23,29 +30,32 @@ UITextbox::UITextbox(int textSize, sf::Color color, bool isSel, int charLimit){
     }
 }
 
-//Sets text color.
-void UITextbox::setTextColor(sf::Color color){
-    textbox.setFillColor(color);
+UITextbox::~UITextbox(){
+
 }
 
-//Sets the font, needs to be set when called.
-void UITextbox::setFont(sf::Font& font){
-    textbox.setFont(font);
+/* Accessors */
+
+bool UITextbox::isSelected(){
+    return this->selected;
 }
 
-//Sets position, needs to be set when called.
-void UITextbox::setPosition(sf::Vector2f pos){
-    textbox.setPosition(pos);
+int UITextbox::getCharLimit(){
+    return this->limit;
+}
+
+std::string UITextbox::getText(){
+    return ss.str();
 }
 
 //Sets whether a textbox is selected.
-void UITextbox::setSelection(bool ToF){
+void UITextbox::setSelected(bool ToF){
     /*
     If the textbox is not selected/unselected, the string is saved.
     */
     
-    isSelected = ToF;
-    if(!isSelected){
+    selected = ToF;
+    if(!selected){
         std::string s = "";
         for(int i = 0; i < ss.str().length(); ++i){
             s += ss.str()[i];
@@ -54,9 +64,20 @@ void UITextbox::setSelection(bool ToF){
     }
 }
 
-//Returns string that user typed.
-std::string UITextbox::getText(){
-    return ss.str();
+void UITextbox::setTextColor(sf::Color color){
+    textbox.setFillColor(color);
+}
+
+void UITextbox::setColor(std::string colorName, sf::Color color){
+    this->colors[colorName] = color;
+}
+
+void UITextbox::setColors(std::map<std::string, sf::Color> colors){
+    this->colors = colors;
+}
+
+void UITextbox::setFont(sf::Font* font){
+    textbox.setFont(*this->font);
 }
 
 //Controls behavior of textbox when the user types in it.
@@ -69,7 +90,7 @@ void UITextbox::typedOn(sf::Event textEntered){
     Checks if the charaters are valid. ( <128 ), calls private InputLogic function.
     Checks if character limit is reached, if it is only allows delete behavior (backspace()).
     */
-    if(isSelected){
+    if(selected){
         int charTypedValue = textEntered.text.unicode;
 
         //valid characters
@@ -84,10 +105,51 @@ void UITextbox::typedOn(sf::Event textEntered){
     }
 }
 
-//Draws object to window.
-void UITextbox::drawTo(sf::RenderWindow& window){
-    window.draw(textbox);
+
+//Sets position
+void UITextbox::setPosition(float x, float y){
+    this->bounds.setPosition(sf::Vector2f(x,y));
 }
+
+// Ticks and Render
+void UITextbox::updateSelected(sf::Window* window){
+    sf::Event event;
+    
+    if(sf::Keyboard::isKeyPressed(sf::Keyboard::Tab)){
+        setSelected(true);
+    }
+    else if(sf::Keyboard::isKeyPressed(sf::Keyboard::Return)){
+        setSelected(false);
+    }
+    while(window->pollEvent(event)){///???
+        if(event.type == sf::Event::TextEntered){
+            this->typedOn(event);
+        }
+    }
+}
+
+void UITextbox::renderTextbox(sf::RenderTarget* target){
+    //set color
+
+    setColor("TextColor", sf::Color(10,230,10));
+
+    textbox.setFillColor(this->colors["TextColor"]);
+    //set position
+    textbox.setPosition(this->x, this->y);
+
+    //draw
+    target->draw(textbox);
+}
+
+        //Virtual function from UIObject class
+void UITextbox::tick(const float& dt, sf::Window* window){
+    updateSelected(window);
+}
+void UITextbox::render(sf::RenderTarget* target){
+    renderTextbox(target);
+}
+
+
 
 //Private functions
 

@@ -73,7 +73,7 @@ void UIDisplayText::tick(const float& dt, sf::Window* window){
 void UIDisplayText::render(sf::RenderTarget* target){
     renderDisplayText(target);
 
-    renderBounds(target);
+    //renderBounds(target);
 }
 
 

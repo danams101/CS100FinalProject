@@ -8,6 +8,7 @@
 
 #include "../gui/UIStatBar.h"
 #include "../gui/UIDisplayText.h"
+#include "../gui/UITextbox.h"
 
 class GraphicsSettings;
 class State;
@@ -40,7 +41,7 @@ class State {
 
 		float keytime;
 		// in seconds
-		float keytimeMax = 0.3f;
+		float keytimeMax = 8.f;//0.3f;
 
 		// Resources
 		// std::map<std::string, sf::Texture> textures;
