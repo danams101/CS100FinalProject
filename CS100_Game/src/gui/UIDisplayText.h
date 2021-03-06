@@ -34,7 +34,9 @@ class UIDisplayText : public UIObject {
         void setFont(sf::Font* font);
 
         // Override from UIObject
-        void setPostition(float x, float y);
+        void setPosition(float x, float y);
+
+        void move(float x, float y);
 
         //Ticks and Render
         //void updateSomthing(), nothing to update at the moment

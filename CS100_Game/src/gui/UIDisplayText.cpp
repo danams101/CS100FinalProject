@@ -53,8 +53,12 @@ void UIDisplayText::setFont(sf::Font* font){
 }
 
 // Override from UIObject
-void UIDisplayText::setPostition(float x, float y){
+void UIDisplayText::setPosition(float x, float y){
     this->bounds.setPosition(sf::Vector2f(x, y));
+}
+
+void UIDisplayText::move(float x, float y){
+    text.setPosition(sf::Vector2f(x, y));
 }
 
 //Ticks and Render

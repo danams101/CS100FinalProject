@@ -41,6 +41,16 @@ void MainMenuState::initColors() {
 	this->debugTheme["textHoverColor"] = sf::Color::Red;
 	this->debugTheme["textActiveColor"] = sf::Color::Cyan;
 
+	this->defaultTheme["idleColor"] = sf::Color(52,58,64);
+	this->defaultTheme["hoverColor"] = sf::Color(206,212,218);
+	this->defaultTheme["activeColor"] = sf::Color(248,249,250);
+	this->defaultTheme["accentIdleColor"] = sf::Color(33,37,41);
+	this->defaultTheme["accentHoverColor"] = sf::Color(233,236,239);
+	this->defaultTheme["accentActiveColor"] = sf::Color(206,212,218);
+	this->defaultTheme["textIdleColor"] = sf::Color(222,226,230);
+	this->defaultTheme["textHoverColor"] = sf::Color(130,130,130);
+	this->defaultTheme["textActiveColor"] = sf::Color(173,181,189);
+
 }
 
 // Initialize keybind
@@ -81,21 +91,21 @@ void MainMenuState::initUI() {
 	/* Buttons */
 
 	// Play Game
-	UIButton* playGame = new UIButton(gfx.getX(20), gfx.getY(10), gfx.getX(30), gfx.getY(20), this->debugTheme, gfx.getY(1),
-	"Play", gfx.getCharSize(40), &this->fonts["default"], true);
+	UIButton* playGame = new UIButton(gfx.getX(35), gfx.getY(10), gfx.getX(30), gfx.getY(20), this->defaultTheme, gfx.getY(1),
+	"Play", gfx.getCharSize(40), &this->fonts["default"], true); //changed theme to test
 	UIObject* playGameObj = playGame;
 	this->uiList.add(playGameObj);
 	this->buttons["Play_Game"] = playGame;
 
 	// Settings Menu
-	UIButton* settingsMenu = new UIButton(gfx.getX(20), gfx.getY(40), gfx.getX(30), gfx.getY(20), this->debugTheme, gfx.getY(1),
+	UIButton* settingsMenu = new UIButton(gfx.getX(35), gfx.getY(40), gfx.getX(30), gfx.getY(20), this->defaultTheme, gfx.getY(1),
 	"Settings", gfx.getCharSize(40), &this->fonts["default"], true);
 	UIObject* settingsMenuObj = settingsMenu;
 	this->uiList.add(settingsMenuObj);
 	this->buttons["Settings_Menu"] = settingsMenu;
 
 	// Quit Game
-	UIButton* quitGame = new UIButton(gfx.getX(20), gfx.getY(70), gfx.getX(30), gfx.getY(20), this->debugTheme, gfx.getY(1),
+	UIButton* quitGame = new UIButton(gfx.getX(35), gfx.getY(70), gfx.getX(30), gfx.getY(20), this->defaultTheme, gfx.getY(1),
 	"Quit", gfx.getCharSize(40), &this->fonts["default"], true);
 	UIObject* quitGameObj = quitGame;
 	this->uiList.add(quitGameObj);
@@ -129,6 +139,8 @@ void MainMenuState::updateButtons() {
 	// New Game
 	if(this->buttons["Play_Game"]->isClicked()) {
 		std::cout << "CLICKED!!!!!" << std::endl;
+		//this->states->push(new GameState(this->stateData));
+		this->globalData->states->push(new GameState(this->globalData));
 	}
 
 	// Setting Menu

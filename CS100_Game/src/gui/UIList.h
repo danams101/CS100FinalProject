@@ -15,6 +15,8 @@ class UIList : public UIObject{
         void add(UIObject* obj);
         void remove(UIObject* obj);
 
+        void popBack();
+
         // Note: We might need a method to access object in a composite later.
         // virtual UIObject* GetChild(int objNum);
 

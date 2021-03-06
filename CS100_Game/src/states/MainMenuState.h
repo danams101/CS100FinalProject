@@ -1,7 +1,7 @@
 #ifndef MAINMENUSTATE_H
 #define MAINMENUSTATE_H
 
-// #include "GameState.h"
+#include "GameState.h"
 // #include "SettingsState.h"
 
 #include "State.h"
