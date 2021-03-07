@@ -6,6 +6,7 @@
 class UIStatBar : public UIObject {
     private:
         bool activated;
+        bool done = false;
         
         float barLength;
         float timer;
@@ -24,6 +25,7 @@ class UIStatBar : public UIObject {
 
         /* Accessors */
         bool isActivated();
+        bool isDone();
         float getTimerDuration();
         float getBarLength();
         // Function to return progress, might need it later.

@@ -27,6 +27,9 @@ UIStatBar::~UIStatBar(){
 bool UIStatBar::isActivated(){
     return this->activated;
 }
+bool UIStatBar::isDone(){
+    return done;
+}
 float UIStatBar::getTimerDuration(){
     return this->timerDuration;
 }

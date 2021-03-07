@@ -17,7 +17,7 @@ class UIDisplayText : public UIObject {
         //void textWrappingLogic();
 
     public:
-        UIDisplayText(float x, float y, std::map<std::string, sf::Color> colors,std::string text, int textSize = 12, sf::Font* font = nullptr, bool limit = false, int charLimit = 0);
+        UIDisplayText(float x, float y, float width, float height, std::map<std::string, sf::Color> colors, std::string text, int textSize = 12, sf::Font* font = nullptr, bool limit = false, int charLimit = 0);
         virtual ~UIDisplayText();
 
         /* Accessors */

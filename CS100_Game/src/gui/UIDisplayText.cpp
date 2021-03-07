@@ -1,7 +1,7 @@
 #include "UIDisplayText.h"
 
 /* Constructors/Destructors */
-UIDisplayText::UIDisplayText(float x, float y, std::map<std::string, sf::Color> colors,std::string text, int textSize, sf::Font* font, bool limit, int charLimit)
+UIDisplayText::UIDisplayText(float x, float y, float width, float height, std::map<std::string, sf::Color> colors,std::string text, int textSize, sf::Font* font, bool limit, int charLimit)
  : UIObject(x, y, width, height){
     /*
     Note: charLim is for a text wrapping algo we might implement later.
@@ -16,13 +16,15 @@ UIDisplayText::UIDisplayText(float x, float y, std::map<std::string, sf::Color> 
    this->text.setString(text);
    this->text.setCharacterSize(textSize); 
    this->text.setFont(*this->font);
+   //this->text.setPosition({x, y});
 
     //textWrappingLogic();
 
 }
 
 UIDisplayText::~UIDisplayText(){
-
+    //delete all pointers i think
+    delete font;
 }
 
 /* Accessors */
@@ -55,10 +57,12 @@ void UIDisplayText::setFont(sf::Font* font){
 // Override from UIObject
 void UIDisplayText::setPosition(float x, float y){
     this->bounds.setPosition(sf::Vector2f(x, y));
+    text.setPosition(sf::Vector2f(x, y));
 }
 
 void UIDisplayText::move(float x, float y){
-    text.setPosition(sf::Vector2f(x, y));
+    this->bounds.move(x, y);
+    text.move(x, y);
 }
 
 //Ticks and Render
@@ -77,7 +81,7 @@ void UIDisplayText::tick(const float& dt, sf::Window* window){
 void UIDisplayText::render(sf::RenderTarget* target){
     renderDisplayText(target);
 
-    //renderBounds(target);
+    renderBounds(target);
 }
 
 

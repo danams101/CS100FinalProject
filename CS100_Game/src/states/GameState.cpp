@@ -72,6 +72,11 @@ void GameState::initKeybinds(){
 	ifs.close();
 }
 
+// Initialize the text map from text file
+void GameState::initTexts(){
+
+}
+
 // Initialize UI
 void GameState::initUI(){
 	GraphicsConverter gfx = GraphicsConverter(this->globalData->gfxSettings->resolution);
@@ -93,19 +98,35 @@ void GameState::initUI(){
 	this->buttons["Main_Menu"] = mainMenu;
 
 
-	UIButton* fire = new UIButton(gfx.getX(35), gfx.getY(40), gfx.getX(30), gfx.getY(20), this->defaultTheme, gfx.getY(1),
-	"stoke the fire", gfx.getCharSize(50), &this->fonts["default"], true); //changed theme to test
+	UIButton* fire = new UIButton(gfx.getX(35), gfx.getY(20), gfx.getX(20), gfx.getY(10), this->defaultTheme, gfx.getY(1),
+	"stoke the fire", gfx.getCharSize(60), &this->fonts["default"], true); //changed theme to test
 	
 	UIObject* fireObj = fire;
 	this->uiList.add(fireObj);
 
 	this->buttons["Stoke_Fire"] = fire;
 
-	UIDisplayText* t = new UIDisplayText(gfx.getX(5),gfx.getY(5), defaultTheme, "fire started", gfx.getCharSize(80), &this->fonts["default"]);
-	UIObject* tObj = t;
-	this->uiList.add(tObj);
+	UIButton* gatherWood = new UIButton(gfx.getX(35), gfx.getY(30), gfx.getX(20), gfx.getY(10), this->defaultTheme, gfx.getY(1),
+	"gather wood", gfx.getCharSize(60), &this->fonts["default"], true); //changed theme to test
+	
+	UIObject* gatherWoodObj = gatherWood;
+	this->uiList.add(gatherWoodObj);
 
-	this->texts["F1"] = t;
+	this->buttons["Gather_Wood"] = gatherWood;
+
+	UIStatBar* woodStatus = new UIStatBar(gfx.getX(35), gfx.getY(40), gfx.getX(20), gfx.getY(10), this->defaultTheme, 10.f, false);
+	UIObject* woodStatusObj = woodStatus;
+	this->uiList.add(woodStatusObj);
+	this->statBars["Wood_Status"] = woodStatus;
+
+	UIButtonTimer* butTimer = new UIButtonTimer(gfx.getX(35), gfx.getY(30), gfx.getX(20), gfx.getY(10), this->defaultTheme, gfx.getY(1),
+	"gather wood", gfx.getCharSize(60), &this->fonts["default"], true, 10.f, false);///del
+
+	// UIDisplayText* t = new UIDisplayText(gfx.getX(5),gfx.getY(5), defaultTheme, "fire started", gfx.getCharSize(80), &this->fonts["default"]);
+	// UIObject* tObj = t;
+	// this->uiList.add(tObj);
+
+	// this->displayTexts["F1"] = t;
 
 }
 
@@ -130,8 +151,9 @@ void GameState::updateButtons(){
 	// if(showGame){
 	// 	buttons.erase("Wake_up");
 	// }
-	if(this->buttons["Wake_up"]->isClicked()){
-		std::cout << "Wake up pushed" << std::endl;
+	GraphicsConverter gfx = GraphicsConverter(this->globalData->gfxSettings->resolution);
+	if(this->buttons["Wake_up"]->isClicked() && !showGame){
+		//std::cout << "Wake up pushed" << std::endl;
 		showGame = true;
 	}
 	if(this->buttons["Main_Menu"]->isClicked()) {
@@ -139,7 +161,22 @@ void GameState::updateButtons(){
 	}
 	if(buttons["Stoke_Fire"]->isClicked()){
 		std::cout << "fire stoked" << std::endl;
-		texts["F1"]->move(5.f, 50.f);
+
+		// scrolledText.push_back(new UIDisplayText(gfx.getX(10), gfx.getY(8), gfx.getX(10), gfx.getY(6), this->defaultTheme, "firestoked", gfx.getCharSize(80), &this->fonts["default"]));
+		// for(auto it: scrolledText){
+        //     it->move(0,20);//(gfx.getX(0),gfx.getY(20));
+        // }
+
+		//textList->pushBack(new UIDisplayText(gfx.getX(10), gfx.getY(8), gfx.getX(10), gfx.getY(6), this->defaultTheme, "firestoked", gfx.getCharSize(80), &this->fonts["default"]));
+
+
+		uiTexts.push_back(new uiText(gfx.getCharSize(80), defaultTheme["normalTextColor"], "please work", this->fonts["default"], sf::Vector2f(gfx.getX(5), gfx.getY(4))));
+		for (auto it: uiTexts){
+			it->move(0, gfx.getY(5));
+		}
+	}
+	if(buttons["Gather_Wood"]->isClicked()){
+		statBars["Wood_Status"]->setActivation(true);
 	}
 }
 void GameState::updateKeyInput(){
@@ -192,6 +229,22 @@ void GameState::renderBackground(sf::RenderTarget* target){
 	target->draw(rightScreen);
 }
 
+void GameState::renderUpdateTexts(sf::RenderTarget* target){
+	GraphicsConverter gfx = GraphicsConverter(this->globalData->gfxSettings->resolution);
+	// for(auto it : this->scrolledText){
+	// 	it->render(target);
+	// 	//it->move(gfx.getX(0),gfx.getY(10));
+    // }
+	// disT = new UIDisplayText(gfx.getX(10), gfx.getY(8), gfx.getX(10), gfx.getY(6), this->defaultTheme, "firestoked", gfx.getCharSize(80), &this->fonts["default"]);
+	// disT->render(target);
+	// disT->setPosition(disT->getX()+10, disT->getY()+10);
+
+
+	for (auto it : uiTexts){
+		it->render(target);
+	}
+}
+
 void GameState::render(sf::RenderTarget* target){
 
 	if (!target)
@@ -204,10 +257,13 @@ void GameState::render(sf::RenderTarget* target){
 			asleep = false;
 		}
 		renderBackground(target);
+		renderUpdateTexts(target);
 
 		this->uiList.render(target);
+		
 	}
 	else{
+		target->clear(sf::Color::Black);
 		buttons["Wake_up"]->render(target);
 	}
 
