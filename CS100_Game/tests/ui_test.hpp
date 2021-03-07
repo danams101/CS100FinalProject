@@ -4,7 +4,7 @@
 #include "../src/gui/UIButton.h"
 #include "gtest/gtest.h"
 
-TEST(ConstructorT, ZeroWidthHeight){
+TEST(UiTest, Standard){
     EXPECT_EQ(0, 0);
     EXPECT_EQ(0, 0);
 }
