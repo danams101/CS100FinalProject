@@ -3,7 +3,7 @@
 
 //#include "../src/gui/UIObject.h"
 //#include "stdafx.h"
-#include "../src/gui/UIButton.h"
+#include "../src/gui/UIButton.cpp"
 #include "gtest/gtest.h"
 
 TEST(UiTest, Standard){
