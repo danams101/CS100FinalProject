@@ -4,10 +4,12 @@
 #include "State.h"
 #include <list>
 
-#include "../uiText.hpp"
+#include "../gui/guiText.hpp"
+#include "../inventory/inventory.hpp"
+//#include "ForestState.h"
 
 class GameState : public State {
-    private:
+    protected:
 
         //Resources needed
         const std::string keybindFile = "../res/config/keybinds_gamestate.ini";
@@ -15,6 +17,11 @@ class GameState : public State {
 
 		//Variables
 		std::map<std::string, sf::Font> fonts;
+
+        // 0 = out, 1 = flickering, 2 = roaring 
+        int fireState = 0;
+        Inventory inventory;
+
 
         //Might need more than one to account for panels
 		UIList uiList;
@@ -29,21 +36,18 @@ class GameState : public State {
 
 		std::map<std::string, UIButton*> buttons;
         std::map<std::string, UIStatBar*> statBars;
-        std::map<std::string, UIDisplayText*> displayTexts; //DONT KNOW IF WANT TO KEEP
+        std::map<std::string, UIButtonTimer*> timers;
 
+        std::map<std::string, UIDisplayText*> inventoryMap; //DONT KNOW IF WANT TO KEEP
+        
         //Possible texts to display, will initialize from a text file
-        std::map<std::string, sf::Text> texts;
-
-        //std::list<UIDisplayText*> scrolledText;
-
-        //UIList* textList;
-
-        //UIDisplayText* disT;
+        std::map<std::string, std::string> texts;
 
         std::list<uiText*> uiTexts;
 		
 		std::map<std::string, sf::Color> defaultTheme;
 		std::map<std::string, sf::Color> debugTheme;
+        std::map<std::string, sf::Color> tabButtonTheme;
 
         bool showGame = false;
         bool asleep = true;
@@ -66,6 +70,8 @@ class GameState : public State {
         /* Functions */
         void resetUI();
 
+        void configureTextList(std::list<uiText*>& list);
+
 
 
         //Ticks and render
@@ -73,6 +79,7 @@ class GameState : public State {
         void renderUpdateTexts(sf::RenderTarget* target = nullptr);
 
         void updateButtons();
+        void updateInventory();
         void updateKeyInput();//prob where can fix testbox
         void tick(const float& dt);
         void render(sf::RenderTarget* target = nullptr);

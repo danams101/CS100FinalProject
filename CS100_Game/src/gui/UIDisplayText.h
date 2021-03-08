@@ -33,6 +33,8 @@ class UIDisplayText : public UIObject {
         void setColors(std::map<std::string, sf::Color> colors);
         void setFont(sf::Font* font);
 
+        void setTextBold();
+
         // Override from UIObject
         void setPosition(float x, float y);
 

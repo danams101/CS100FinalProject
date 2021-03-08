@@ -19,12 +19,24 @@ class uiText {
             t.setPosition(pos);
         }
 
+        sf::Color getColor(){
+            return t.getFillColor();
+        }
+
+        std::string getString(){
+            return t.getString();
+        }
+
         void move(float x, float y){
             t.move(x, y);
         }
 
         void setPosition(sf::Vector2f pos){
             t.setPosition(pos);
+        }
+
+        void setColor(sf::Color color){
+            t.setFillColor(color);
         }
 
         void render(sf::RenderTarget* target){

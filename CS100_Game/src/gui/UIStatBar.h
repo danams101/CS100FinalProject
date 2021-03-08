@@ -26,15 +26,17 @@ class UIStatBar : public UIObject {
         /* Accessors */
         bool isActivated();
         bool isDone();
+
         float getTimerDuration();
         float getBarLength();
-        // Function to return progress, might need it later.
-        float getProgress();
         
         /* Functions */
         void setActivation(bool activated);
         void setColor(std::string colorName, sf::Color color);
         void setColors(std::map<std::string, sf::Color> colors);
+
+        void setStatBarColor(sf::Color color);
+        void resetBar();
 
         // Override from UIObject
         void setPosition(float x, float y);

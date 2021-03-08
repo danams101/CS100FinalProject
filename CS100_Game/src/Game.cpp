@@ -170,7 +170,7 @@ void Game::render() {
 	/* Clear window, and
 	then call the top most state's render function */
 
-	this->window->clear();
+	this->window->clear(sf::Color(173,181,189));//change color
 
 	//Render items
 	if (!this->states.empty())

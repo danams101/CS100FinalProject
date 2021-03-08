@@ -30,19 +30,12 @@ bool UIStatBar::isActivated(){
 bool UIStatBar::isDone(){
     return done;
 }
+
 float UIStatBar::getTimerDuration(){
     return this->timerDuration;
 }
 float UIStatBar::getBarLength(){
     return this->barLength;
-}
-// Function to return progress, might need it later.
-float UIStatBar::getProgress(){
-    /*  
-    Returns the width of the bar which signifies the progress. 
-    Note: We can change this to a percentage or different value type later if need be.
-    */
-    return bar.getSize().x;
 }
 
 /* Functions */
@@ -51,13 +44,25 @@ float UIStatBar::getProgress(){
 void UIStatBar::setActivation(bool activated){
     this->activated = activated;
 }
-// Sets color of bar.
 void UIStatBar::setColor(std::string colorName, sf::Color color){
     this->colors[colorName] = color;
 }
 
 void UIStatBar::setColors(std::map<std::string, sf::Color> colors) {
 	this->colors = colors;
+}
+
+// Sets color of bar.
+void UIStatBar::setStatBarColor(sf::Color color){
+    bar.setFillColor(color);
+}
+
+// Resets bar to original size
+void UIStatBar::resetBar(){
+    bar.setSize(sf::Vector2f(this->width, this->height));
+    this->activated = false;
+    done = false;
+    this->barLength = this->width;
 }
 
 // Sets bar position.
@@ -97,6 +102,12 @@ void UIStatBar::updateProgress(const float& dt){
             bar.setSize({bar.getSize().x - 1, bar.getSize().y});
             timer = 0;
         }
+        //To check if the timer is done, and needs to be reset.
+        if(bar.getSize().x <= 0){
+            done = true;
+            activated = false;
+            resetBar();
+        }
     }
 }
 
@@ -110,12 +121,12 @@ void UIStatBar::renderStatBar(sf::RenderTarget* target){
 }
 
 void UIStatBar::tick(const float& dt, sf::Window* window){
-    updateBounds(); //UIButton:: ???
+    updateBounds();
     updateProgress(dt);
 }
 
 void UIStatBar::render(sf::RenderTarget* target){
     renderStatBar(target);
 
-    renderBounds(target);
+    //renderBounds(target);
 }

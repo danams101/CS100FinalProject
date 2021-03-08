@@ -24,7 +24,7 @@ UIDisplayText::UIDisplayText(float x, float y, float width, float height, std::m
 
 UIDisplayText::~UIDisplayText(){
     //delete all pointers i think
-    delete font;
+    //delete font;
 }
 
 /* Accessors */
@@ -54,6 +54,11 @@ void UIDisplayText::setFont(sf::Font* font){
     this->font = font;
 }
 
+
+void UIDisplayText::setTextBold() {
+    this->text.setStyle(sf::Text::Bold | sf::Text::Underlined);
+}
+
 // Override from UIObject
 void UIDisplayText::setPosition(float x, float y){
     this->bounds.setPosition(sf::Vector2f(x, y));
@@ -81,7 +86,7 @@ void UIDisplayText::tick(const float& dt, sf::Window* window){
 void UIDisplayText::render(sf::RenderTarget* target){
     renderDisplayText(target);
 
-    renderBounds(target);
+    //renderBounds(target);
 }
 
 
