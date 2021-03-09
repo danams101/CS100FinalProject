@@ -2,7 +2,7 @@
 #include "inventory.hpp"
 using namespace std;
 
-int test(){
+int main(){
   Inventory* Test1 = new Inventory();
   cout << "Testing constructor, everything shall be set as 0, number of Wood: " << Test1->getnumWood() << ", number of Meat: " << Test1->getnumMeat();
   cout << ", number of Metal: " << Test1->getnumMetal() << ", number of Steels: " << Test1->getnumSteels() << endl;

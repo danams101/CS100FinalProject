@@ -2,6 +2,7 @@
 #define UI_TEST_HPP
 
 #include "../src/gui/UIButton.h"
+#include "../src/gui/UIButton.cpp"
 #include "gtest/gtest.h"
 
 TEST(ConstructorT, ZeroWidthHeight){
@@ -9,4 +10,20 @@ TEST(ConstructorT, ZeroWidthHeight){
     EXPECT_EQ(0, 0);
 }
 
+TEST(UiButton,Test1){
+	float x = 1;
+	float y = 1;
+	float width = 1;
+	float height = 1;
+	std::map<std::string, sf::Color> colors;
+	float thickness = 0;
+	std::string text = "";
+	int textSize = 0;
+	sf::Font* font = nullptr;
+	bool centered = false;
+	UIButton* temp = new UIButton(x, y, width, height, colors, thickness, text, textSize, font, centered);
+	EXPECT_EQ(false, temp->isCentered());
+	EXPECT_EQ(false, temp->isHovered());
+}
+	
 #endif // UI_TEST_HPP
