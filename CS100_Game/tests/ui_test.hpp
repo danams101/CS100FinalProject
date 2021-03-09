@@ -3,8 +3,9 @@
 
 //#include "../src/gui/UIObject.h"
 //#include "stdafx.h"
-#include "../src/gui/UIButton.cpp"
-#include "gtest/gtest.h"
+#include "../src/gui/UIButton.h"
+//#include "gtest/gtest.h"
+#include "/home/csmajs/ffan005/final-project-powerrangers/googletest/googletest/include/gtest/gtest.h"
 
 TEST(UiTest, Standard){
     EXPECT_EQ(0, 0);
