@@ -40,8 +40,8 @@ void initTests(TestEngine* bing_tests) {
     console->print("Initializing Test Suites\n", 0);
 
     // UIButtonTest
+    bing_tests->addTestSuite(new UIObjectTest(bing_tests->getGlobalData()));
     bing_tests->addTestSuite(new UIButtonTest(bing_tests->getGlobalData()));
-    bing_tests->addTestSuite(new UIButtonTest2(bing_tests->getGlobalData()));
 
     console->print("[==========] ", 1);
     console->print("Finalized Initializing Test Suites\n", 0);
