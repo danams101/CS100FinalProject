@@ -85,6 +85,12 @@ void TestEngine::runTests() {
         console->print(this->failedTests.at(i) + "\n", 0);
     }
 
-    console->print(std::to_string(this->failedTests.size()) + " FAILED TESTS", 4);
+    if(this->failedTests.size() == 0) {
+        console->print("ALL TESTS PASSED", 4);
+
+    }
+    else {
+        console->print(std::to_string(this->failedTests.size()) + " FAILED TESTS", 4);
+    }
 
 }
