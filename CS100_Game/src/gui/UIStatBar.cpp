@@ -1,36 +1,83 @@
-#include "UIStatBar.hpp"
+#include "UIStatBar.h"
 
-// Sets bar size, active or not, timer duration.
-UIStatBar::UIStatBar(sf::Vector2f barSize, bool active, float duration){
+/* Constructors/Destructors */
+UIStatBar::UIStatBar(float x, float y, float width, float height, std::map<std::string, sf::Color> colors, float duration, bool activated)
+ : UIObject(x, y, width, height) {
     /*
     Initialized the barLength and timer as well.
     */
 
-    bar.setSize(barSize);
-    barLength = barSize.x;
-    isActivated = active;
+    bar.setSize(sf::Vector2f(width, height));
+
+    this->activated = activated;
+    this->barLength = width;
+    this->timerDuration = duration;
     
     timer = 0.f;
-    timerDuration = duration;
+    
+    this->colors = colors;
+}
+
+UIStatBar::~UIStatBar(){
+
+}
+
+/* Accessors */
+
+bool UIStatBar::isActivated(){
+    return this->activated;
+}
+bool UIStatBar::isDone(){
+    return done;
+}
+
+float UIStatBar::getTimerDuration(){
+    return this->timerDuration;
+}
+float UIStatBar::getBarLength(){
+    return this->barLength;
+}
+
+/* Functions */
+
+// Sets if the timer should start/stop.
+void UIStatBar::setActivation(bool activated){
+    this->activated = activated;
+}
+void UIStatBar::setColor(std::string colorName, sf::Color color){
+    this->colors[colorName] = color;
+}
+
+void UIStatBar::setColors(std::map<std::string, sf::Color> colors) {
+	this->colors = colors;
 }
 
 // Sets color of bar.
-void UIStatBar::setColor(sf::Color color){
+void UIStatBar::setStatBarColor(sf::Color color){
     bar.setFillColor(color);
 }
 
-// Sets bar position.
-void UIStatBar::setPosition(sf::Vector2f pos){
-    bar.setPosition(pos);
+// Resets bar to original size
+void UIStatBar::resetBar(){
+    bar.setSize(sf::Vector2f(this->width, this->height));
+    this->activated = false;
+    done = false;
+    this->barLength = this->width;
 }
 
-// Sets if the timer should start/stop.
-void UIStatBar::setActivation(bool active){
-    isActivated = active;
+// Sets bar position.
+void UIStatBar::setPosition(float x, float y){
+    this->bounds.setPosition(sf::Vector2f(x,y));
+
 }
+void UIStatBar::setSize(float width, float height){
+
+}
+
+// Ticks and Render
 
 // Implements timer behavior.
-void UIStatBar::updateProgress(){
+void UIStatBar::updateProgress(const float& dt){
     /*
     Uses timeDuration to calculate speed of progress bar.
 
@@ -47,34 +94,39 @@ void UIStatBar::updateProgress(){
    float timeInterval = timerDuration / barLength;
     
     
-    if (isActivated){
-        //time between frames
-        sf::Time dt = clock.restart();
-
+    if (activated){
         //keeps track of time, so the bar updates by 1 pixel per time interval
-        timer += dt.asSeconds();
+        timer += dt;
         
         if(timer>timeInterval && bar.getSize().x>0){
             bar.setSize({bar.getSize().x - 1, bar.getSize().y});
             timer = 0;
         }
+        //To check if the timer is done, and needs to be reset.
+        if(bar.getSize().x <= 0){
+            done = true;
+            activated = false;
+            resetBar();
+        }
     }
 }
 
-// Returns progress of bar.
-float UIStatBar::getProgress(){
-    /*  
-    Returns the width of the bar which signifies the progress. 
-    Note: We can change this to a percentage or different value type later if need be.
-    */
-    return bar.getSize().x;
+
+// Render the StatBar
+void UIStatBar::renderStatBar(sf::RenderTarget* target){
+    bar.setFillColor(this->colors["idleColor"]);
+    bar.setPosition(this->x, this->y);
+
+    target->draw(bar);
 }
 
-// Draws object to window.
-void UIStatBar::drawTo(sf::RenderWindow& window){
-    /* 
-    Calls updateProgress for the bar, then draws each frame.
-    */
-    updateProgress();
-    window.draw(bar);
+void UIStatBar::tick(const float& dt, sf::Window* window){
+    updateBounds();
+    updateProgress(dt);
+}
+
+void UIStatBar::render(sf::RenderTarget* target){
+    renderStatBar(target);
+
+    //renderBounds(target);
 }

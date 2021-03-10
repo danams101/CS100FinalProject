@@ -1,7 +1,7 @@
 #ifndef MAINMENUSTATE_H
 #define MAINMENUSTATE_H
 
-// #include "GameState.h"
+#include "GameState.h"
 // #include "SettingsState.h"
 
 #include "State.h"
@@ -10,8 +10,8 @@ class MainMenuState : public State {
 	private:
 
 		//Resources needed
-		const std::string keybindFile = "res/config/keybinds_mainmenustate.ini";
-		const std::string defaultFontFile = "res/fonts/UbuntuMono-R.ttf";
+		const std::string keybindFile = "../res/config/keybinds_mainmenustate.ini"; //Note: corrected file navigation
+		const std::string defaultFontFile = "../res/fonts/UbuntuMono-R.ttf";
 
 		//Variables
 		std::map<std::string, sf::Font> fonts;
