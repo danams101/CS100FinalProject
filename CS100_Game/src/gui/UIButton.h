@@ -37,7 +37,7 @@ class UIButton : public UIObject {
 		virtual ~UIButton();
 
 		/* Accessors */
-        bool isCentered();
+        	bool isCentered();
 		bool isHovered();
 		bool isActive();
 		bool isClicked();
@@ -48,9 +48,9 @@ class UIButton : public UIObject {
 		void setState(std::string state);
 		void setText(std::string text);
 		void setThickness(float thickness);
-        void setColor(std::string colorName, sf::Color color);
+       		void setColor(std::string colorName, sf::Color color);
 		void setColors(std::map<std::string, sf::Color> colors);
-        void setFont(sf::Font* font);
+        	void setFont(sf::Font* font);
 
 		// Overrided from UIObject
 		void setPosition(float x, float y);
