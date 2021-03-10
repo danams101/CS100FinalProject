@@ -275,9 +275,17 @@ GameState::~GameState(){
 	// for(std::map<std::string, UIButton*>::iterator it = buttons.begin(); it != buttons.end(); it++){
 	// 	delete (it->second);
 	// }
-	// buttons.clear();
+	buttons.clear();
+	timers.clear();
+	inventoryMap.clear();
+
 
 	//causes segmentation fault
+
+	for(auto it : this->uiTexts){
+        delete it;
+    }
+    this->uiTexts.clear();
 
 }
 

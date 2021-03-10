@@ -8,6 +8,10 @@ UIButtonTimer::UIButtonTimer(float x, float y, float width, float height, std::m
     status = new UIStatBar(this->x, this->y, this->width, this->height, this->colors, duration, activated);
 }
 
+UIButtonTimer::~UIButtonTimer(){
+	delete this->status;
+}
+
 /* UIButtonTimer Accessors */
 bool UIButtonTimer::isTimerDone(){
 	return this->status->isDone();

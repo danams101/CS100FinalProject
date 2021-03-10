@@ -38,7 +38,7 @@ class GameState : public State {
         //Possible texts to display, will initialize from a text file
         std::map<std::string, std::string> texts;
 
-        std::list<uiText*> uiTexts;
+        std::list<uiText*> uiTexts; // deallocate this maybe
 		
 		std::map<std::string, sf::Color> defaultTheme;
 		std::map<std::string, sf::Color> debugTheme;
