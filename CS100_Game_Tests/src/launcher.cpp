@@ -28,6 +28,8 @@ int main() {
 
     delete console;
     delete bing_tests;
+
+    cin.get();
     return 0;
 }
 
