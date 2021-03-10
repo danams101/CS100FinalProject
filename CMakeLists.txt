@@ -6,12 +6,12 @@ ADD_SUBDIRECTORY(googletest)
 
 ADD_EXECUTABLE( test
 	CS100_Game/src/stdafx.cpp
-	CS100_Game/tests/test.cpp
+	CS100_Game/src/gui/UIButton_test.cpp
 )
 
 INCLUDE_DIRECTORIES(
         CS100_Game/lib/SFML_linux/include
-}
+)
 
 
 

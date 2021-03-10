@@ -1,5 +1,5 @@
 #include <iostream>
-#include "UIButton.cpp"
+#include "UIButton.h"
 
 using namespace std;
 
