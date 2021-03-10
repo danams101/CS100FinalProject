@@ -27,6 +27,16 @@ void UIList::remove(UIObject* obj) {
     }
 }
 
+void UIList::pushBack(UIObject* obj){
+    this->objects.push_back(obj);
+}
+
+void UIList::popBack(){
+    if(this->objects.size()>0){
+        this->objects.pop_back();
+    }
+}
+
 // Main tick function TODO?
 void UIList::tick(const float& dt, sf::Window* window) {
 	for(auto const& it : this->objects){

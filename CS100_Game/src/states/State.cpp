@@ -61,7 +61,7 @@ void State::renderMousePos() {
 	sf::Vector2i mousePosInt = sf::Mouse::getPosition(*this->globalData->window);
 	mouseText.setPosition(mousePosInt.x, mousePosInt.y - 50);
 	sf::Font font;
-	font.loadFromFile("res/fonts/UbuntuMono-R.ttf");
+	font.loadFromFile("../res/fonts/UbuntuMono-R.ttf");//Note: Corrected file navigation
 	mouseText.setFont(font);
 	mouseText.setCharacterSize(12);
 	std::stringstream ss;
