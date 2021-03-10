@@ -131,9 +131,7 @@ void UITextbox::updateSelected(sf::Window* window){
 void UITextbox::renderTextbox(sf::RenderTarget* target){
     //set color
 
-    setColor("TextColor", sf::Color(10,230,10));
-
-    textbox.setFillColor(this->colors["TextColor"]);
+    textbox.setFillColor(this->colors["idleColor"]);
     //set position
     textbox.setPosition(this->x, this->y);
 

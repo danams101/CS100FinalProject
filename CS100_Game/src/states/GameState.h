@@ -1,12 +1,15 @@
 #ifndef GAMESTATE_H
-#define GAMSTATE_H
+#define GAMESTATE_H
 
 #include "State.h"
 #include <list>
 
 #include "../gui/guiText.hpp"
 #include "../inventory/inventory.hpp"
+#include "../inventory/campStatus.hpp"
 //#include "ForestState.h"
+
+//class ForestState;
 
 class GameState : public State {
     protected:
@@ -21,24 +24,16 @@ class GameState : public State {
         // 0 = out, 1 = flickering, 2 = roaring 
         int fireState = 0;
         Inventory inventory;
+        CampStatus camp;
 
 
         //Might need more than one to account for panels
 		UIList uiList;
 
-        /* list for text objects
-                everytime a text object is added(pushfront), the previous gets shifted down
-                once the last reaches a certain point its popped
-                what gets sent to the list depends on what button is pressed
-                we could have a randomized function
-                what gets printed could be initialized to a map from a text file
-                Ex: button pushed-> textlist.pushfront(textMap["button"])*/
-
 		std::map<std::string, UIButton*> buttons;
-        std::map<std::string, UIStatBar*> statBars;
         std::map<std::string, UIButtonTimer*> timers;
 
-        std::map<std::string, UIDisplayText*> inventoryMap; //DONT KNOW IF WANT TO KEEP
+        std::map<std::string, UIDisplayText*> inventoryMap;
         
         //Possible texts to display, will initialize from a text file
         std::map<std::string, std::string> texts;
