@@ -19,8 +19,8 @@ class UIStatBarTest : public TestSuite {
 		virtual ~UIStatBarTest() {
 		}
 
-		void test() {
-		    expectedTests(13);
+	void test() {
+	    expectedTests(16);
             std::string title;
 
             title = "standard";
@@ -32,6 +32,9 @@ class UIStatBarTest : public TestSuite {
 			float duration = 1;
             UIStatBar* temp1 = new UIStatBar(x,y,width,height,colors,duration);
             this->expect_eq(temp1->getX(),1,title);
+	    this->expect_eq(temp1->getY(),1,title);
+            this->expect_eq(temp1->getWidth(),1,title);
+            this->expect_eq(temp1->getHeight(),1,title);
 
             title = "ActivedFalse";
             this->expect_eq(temp1->isActivated(),false,title);
