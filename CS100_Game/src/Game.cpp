@@ -46,6 +46,11 @@ void Game::initKeys() {
 	
 	std::ifstream ifs(this->supportedKeysFile);
 
+	//DEBUG- Files were not opening at first.
+	if(!ifs.is_open()){
+		std::cout << "Supported keys file NOT opened!!" << "\n";
+	}
+
 	if (ifs.is_open())
 	{
 		std::string key = "";
@@ -165,7 +170,7 @@ void Game::render() {
 	/* Clear window, and
 	then call the top most state's render function */
 
-	this->window->clear();
+	this->window->clear(sf::Color(173,181,189));//change color
 
 	//Render items
 	if (!this->states.empty())

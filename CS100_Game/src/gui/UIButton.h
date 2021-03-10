@@ -6,7 +6,7 @@
 enum states{IDLE = 0, HOVER, ACTIVE};
 
 class UIButton : public UIObject {
-	private:
+	protected:
 		bool centered;
 		bool clicked;
 		int state;

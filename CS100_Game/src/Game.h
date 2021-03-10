@@ -7,8 +7,8 @@ class Game {
 	private:
 
 		// Resources needed
-		const std::string gfxFile = "res/config/graphics.ini";
-		const std::string supportedKeysFile = "res/config/supported_keys.ini";
+		const std::string gfxFile = "../res/config/graphics.ini";//Note: added correct file navigation
+		const std::string supportedKeysFile = "../res/config/supported_keys.ini";
 
 		/* Variables */
 		GraphicsSettings gfxSettings;

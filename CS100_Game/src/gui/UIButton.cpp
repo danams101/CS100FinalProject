@@ -200,5 +200,5 @@ void UIButton::render(sf::RenderTarget* target) {
 	}
 
 	// If you want to debug collission detection
-	UIButton::renderBounds(target);
+	//UIButton::renderBounds(target);
 }
