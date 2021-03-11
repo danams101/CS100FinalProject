@@ -326,6 +326,7 @@ void GameState::updateButtons(){
 	GraphicsConverter gfx = GraphicsConverter(this->globalData->gfxSettings->resolution);
 	if(this->buttons["Wake_up"]->isClicked() && !showGame){
 		showGame = true;
+		buttons["Wake_up"]->setPosition(gfx.getX(150),gfx.getY(150));
 	}
 	if(this->buttons["Main_Menu"]->isClicked()) {
 		this->endState();
@@ -556,7 +557,7 @@ void GameState::render(sf::RenderTarget* target){
 
 	if(showGame){
 		if(asleep){
-			uiList.popBack();
+			//uiList.popBack();
 			asleep = false;
 		}
 		renderBackground(target);
