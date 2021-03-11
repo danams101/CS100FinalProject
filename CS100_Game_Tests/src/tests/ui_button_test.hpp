@@ -32,12 +32,19 @@ class UIButtonTest : public TestSuite {
             UIButton* temp1 = new UIButton(x, y, width, height, colors);
             this->expect_eq(temp1->getX(), 1, title);
 
-	    title = "XNegAt1";
+	    title = "XLarge";
+            x = 99;
+            temp1 = new UIButton(x,y,width,height,colors);
+            this ->expect_eq(temp1->getX(),99,title);
+
+            title = "XNegAt1";
             x = -1;
-            this->expect_eq(temp1->getX(), 1, title);
+            temp1 = new UIButton(x,y,width,height,colors);
+            this->expect_eq(temp1->getX(), -1, title);
 
             title = "XPosAtDecimal";
             x = 1.5;
+            temp1 = new UIButton(x,y,width,height,colors);
             this->expect_eq(temp1->getX(), 1, title);
 
             title = "YPosAt1";
@@ -45,10 +52,12 @@ class UIButtonTest : public TestSuite {
 
             title = "YNegAt1";
             y = -1;
-            this->expect_eq(temp1->getY(), 1, title);
+            temp1 = new UIButton(x,y,width,height,colors);
+            this->expect_eq(temp1->getY(), -1, title);
 
             title = "YPosAtDecimal";
             y = 1.5;
+            temp1 = new UIButton(x,y,width,height,colors);
             this->expect_eq(temp1->getY(), 1, title);
 
             title = "WidthAt1";
@@ -56,10 +65,12 @@ class UIButtonTest : public TestSuite {
 
             title = "WidthNegAt1";
             width = -1;
-            this->expect_eq(temp1->getWidth(), 1, title);
+            temp1 = new UIButton(x,y,width,height,colors);
+            this->expect_eq(temp1->getWidth(), -1, title);
 
             title = "WidthAtDecimal";
             width=1.5;
+            temp1 = new UIButton(x,y,width,height,colors);
             this->expect_eq(temp1->getWidth(),1,title);
 
             title = "HeightAt1";
@@ -67,10 +78,12 @@ class UIButtonTest : public TestSuite {
 
             title = "HeightNegAt1";
             height = -1;
-            this->expect_eq(temp1->getHeight(),1,title);
+            temp1 = new UIButton(x,y,width,height,colors);
+            this->expect_eq(temp1->getHeight(),-1,title);
 
             title = "HeightAtDecimal";
             height = 1.5;
+            temp1 = new UIButton(x,y,width,height,colors);
             this->expect_eq(temp1->getHeight(),1,title);
 
             title = "SetPosition";
