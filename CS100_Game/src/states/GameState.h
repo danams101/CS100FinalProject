@@ -17,7 +17,9 @@ class GameState : public State {
         //Resources needed
         const std::string keybindFile = "res/config/keybinds_gamestate.ini";
         const std::string defaultFontFile = "res/fonts/UbuntuMono-R.ttf";
+
         const std::string updateTextFile = "res/config/updateTexts.ini";
+
 
 		//Variables
 		std::map<std::string, sf::Font> fonts;
