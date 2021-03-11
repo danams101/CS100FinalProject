@@ -8,7 +8,7 @@
 #include "../../../CS100_Game/src/gui/UIObject.cpp"
 #include "../../../CS100_Game/src/gui/UIButton.cpp"
 
-class UIButtonTest : public TestSuite {
+class UIObjectTest : public TestSuite {
 
     private:
 
@@ -20,7 +20,7 @@ class UIButtonTest : public TestSuite {
 		}
 
 		void test() {
-		expectedTests(16);
+            expectedTests(16);
         	std::string title;
 
             title = "XPosAt1";
@@ -32,7 +32,7 @@ class UIButtonTest : public TestSuite {
             UIButton* temp1 = new UIButton(x, y, width, height, colors);
             this->expect_eq(temp1->getX(), 1, title);
 
-	    title = "XLarge";
+            title = "XLarge";
             x = 99;
             temp1 = new UIButton(x,y,width,height,colors);
             this ->expect_eq(temp1->getX(),99,title);
@@ -96,7 +96,7 @@ class UIButtonTest : public TestSuite {
             this->expect_eq(temp1->getWidth(),10,title);
             this->expect_eq(temp1->getHeight(),10,title);
 
-            ranTests();            
+            ranTests();
 
             delete temp1;
 		}

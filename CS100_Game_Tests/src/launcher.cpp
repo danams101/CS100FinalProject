@@ -11,11 +11,10 @@
 #include "tests/ui_statbar_test.hpp"
 #include "tests/ui_buttontimer_test.hpp"
 #include "tests/ui_list_test.hpp"
-#include "tests/ui_displaytext_test.hpp"
+#include "tests/ui_display_text_test.hpp"
 #include "tests/ui_textbox_test.hpp"
 #include "tests/inventory_test.hpp"
 #include "tests/campStatus_test.hpp"
-#include "tests/state_test.hpp"
 
 using namespace std;
 

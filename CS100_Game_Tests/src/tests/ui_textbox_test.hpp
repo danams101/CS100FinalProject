@@ -55,3 +55,5 @@ class UITextboxTest : public TestSuite {
             delete temp1;
 		}
 };
+
+#endif
