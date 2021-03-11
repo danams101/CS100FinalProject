@@ -16,7 +16,6 @@ Story premise:
 ### Game Features:
 - Player interaction through text dialogues and buttons. They can push the buttons to gather resources like wood and food and build shelters for the crew and expand the base.
 - The player will have access to an inventory
-- The player will also interact with they story through dialogue options, depending on what the player chooses the game will alter its response.
  
 ### Motivation: 
 This project is interesting to us because it would allow us the opportunity to test our coding and design skills in a creative and challenging way. The nature of game design and storytelling would require clear communication and collaboration in our group, which is an important aspect of this project. And the inherent structure of a game lends well to the use and implementation of the design patterns we will learn this quarter.
@@ -29,10 +28,12 @@ This project is interesting to us because it would allow us the opportunity to t
  
 
  ### Input:
-The interaction with the player will happen in a window in which, depending on what state the game is in, will provide buttons representing actions for the player to use. Depending on what button is pushed the game will execute an action. For example, if the game is in the main menu state there will be a start game button, which will start the game, and a quit game button, which will quit the game.
+The interaction with the player will happen in a window in which, depending on what state the game is in, will provide buttons representing actions for the player to use. Depending on what button is pushed the game will execute an action. 
+
+The Game starts in the Main Menu State where the player is provided three buttons; "Play","Settings", and "Quit". If the player presses "Play" it takes them to a screen with a "Wake up" button, when that button is pushed the game enters the Game State where the buttons for collecting materials and building things are presented to the player.
  
  ### Output:
- The program will output a window which will display different game states. Depending on which state the game is in the window will display different buttons/options. For example, if the game is in the main menu state the window will show the game title and two buttons, a button to start the game, and a button to quit the game.
+ The program outputs a window which will display different game states. Depending on which state the game is in the window will display different buttons/options. For example, if the game is in the main menu state the window will show the Three buttons. Once in the gamestate, when the player presses different buttons, the inventory is djusted and displayed along with text updates in the window.
  
  
  ## Design Patterns:
@@ -51,14 +52,6 @@ We will use the composite pattern to construct a Graphic User Interface using th
 ### Class Diagram Description:
 The launcher contains the main function, in main() a Game object is instantiated. The Game class contains a stack of States and calls update and render functions of the current state the game is in. It also determines when to quits the game and when to continue running the game. The State class is where we implement the State design pattern. We declare an abstract State class with virtual functions: updateKeyInput, update, and render. Then we curently have two main states, MainMenuState and GameState, where those functions are implemented along with functions specific to each state. The GameState contains an Inventory which is a class that stores the amount of items the player has. Both the GameState and MainMenuState instantiate several UIObjects. The UIObject class is where we implemented the Composite Design Pattern. There is the abstract class UIObject, the compoite class UIList, and the leaf classes UIButton, UIDisplayText, UITextBox, UIButtonTimer, and UIStatBar. Each subclass of UIObject implements the render and tick virtual function, with each leaf class haveing their own unique functions they implement. 
  
- > ## Phase III
- > You will need to schedule a check-in with the TA (during lab hours or office hours). Your entire team must be present. 
- > * Before the meeting you should perform a sprint plan like you did in Phase II
- > * In the meeting with your TA you will discuss: 
- >   - How effective your last sprint was (each member should talk about what they did)
- >   - Any tasks that did not get completed last sprint, and how you took them into consideration for this sprint
- >   - Any bugs you've identified and created issues for during the sprint. Do you plan on fixing them in the next sprint or are they lower priority?
- >   - What tasks you are planning for this next sprint.
 
  > ## Final deliverable
  > All group members will give a demo to the TA during lab time. The TA will check the demo and the project GitHub repository and ask a few questions to all the team members. 
