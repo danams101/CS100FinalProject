@@ -62,6 +62,8 @@ The launcher contains the main function, in main() a Game object is instantiated
  ![GameStateProgress1](./FinalProjectScreenShots/GameStateProgress1.png)
  ![GameStateProgress2](./FinalProjectScreenShots/GameStateProgress2.png)
  ![end](./FinalProjectScreenShots/endResults.png)
+ ![Testing1](./FinalProjectScreenShots/CS100_Game_Test_1.png)
+ ![Testing2](./FinalProjectScreenShots/CS100_Game_Test_2.png)
  
  ## Installation/Usage
  We have a release folder that has all of our resources and the executable. To run the game, someone should be able to download the release folder and run the executable.
