@@ -7,7 +7,7 @@ UIList::UIList() : UIObject(0, 0) {
 }
 
 UIList::~UIList(){
-    for(auto const& it : this->objects){
+    for(auto it : this->objects){
         delete it;
     }
     this->objects.clear();

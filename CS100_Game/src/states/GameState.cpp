@@ -108,8 +108,9 @@ void GameState::initUI(){
 	UIButton* wakeUp = new UIButton(gfx.getX(40), gfx.getY(60), gfx.getX(20), gfx.getY(15), this->defaultTheme, gfx.getY(1),
 	"Wake up", gfx.getCharSize(40), &this->fonts["default"], true);
 	
-	UIObject* wakeUpObj = wakeUp;
-	this->uiList.add(wakeUpObj);
+	//UIObject* wakeUpObj = wakeUp;////////////////////////////
+	//this->uiList.add(wakeUpObj);
+	this->uiList.add(wakeUp);
 
 	this->buttons["Wake_up"] = wakeUp;
 
@@ -117,8 +118,9 @@ void GameState::initUI(){
 	UIButton* forest = new UIButton(gfx.getX(50), gfx.getY(1.65), gfx.getX(16.7), gfx.getY(8), this->tabButtonTheme, gfx.getY(0.4),
 	"A Dark Forest", gfx.getCharSize(80), &this->fonts["default"], true);
 	
-	UIObject* forestObj = forest;
-	this->uiList.add(forestObj);
+	// UIObject* forestObj = forest;
+	// this->uiList.add(forestObj);
+	this->uiList.add(forest);
 
 	this->buttons["Forest"] = forest;
 
@@ -130,8 +132,9 @@ void GameState::initUI(){
 	UIButton* mainMenu = new UIButton(gfx.getX(35), gfx.getY(85), gfx.getX(10), gfx.getY(5), this->defaultTheme, gfx.getY(1),
 	"Main Menu", gfx.getCharSize(80), &this->fonts["default"], true);
 	
-	UIObject* mainMenuObj = mainMenu;
-	this->uiList.add(mainMenuObj);
+	// UIObject* mainMenuObj = mainMenu;/////////////////
+	// this->uiList.add(mainMenuObj);
+	this->uiList.add(mainMenu);
 
 	this->buttons["Main_Menu"] = mainMenu;
 
@@ -139,8 +142,9 @@ void GameState::initUI(){
 	UIButton* fire = new UIButton(gfx.getX(35), gfx.getY(20), gfx.getX(14), gfx.getY(8), this->defaultTheme, gfx.getY(1),
 	"Stoke fire", gfx.getCharSize(66), &this->fonts["default"], true);
 	
-	UIObject* fireObj = fire;
-	this->uiList.add(fireObj);
+	// UIObject* fireObj = fire;
+	// this->uiList.add(fireObj);
+	this->uiList.add(fire);
 
 	this->buttons["Stoke_Fire"] = fire;
 
@@ -152,16 +156,18 @@ void GameState::initUI(){
 	UIButton* tent = new UIButton(gfx.getX(35), gfx.getY(35), gfx.getX(14), gfx.getY(8), this->defaultTheme, gfx.getY(1),
 	"Tent", gfx.getCharSize(66), &this->fonts["default"], true);
 	
-	UIObject* tentObj = tent;
-	this->uiList.add(tentObj);
+	// UIObject* tentObj = tent;
+	// this->uiList.add(tentObj);
+	this->uiList.add(tent);
 
 	this->buttons["Build_Tent"] = tent;
 
 	UIButton* trap = new UIButton(gfx.getX(35), gfx.getY(45), gfx.getX(14), gfx.getY(8), this->defaultTheme, gfx.getY(1),
 	"Trap", gfx.getCharSize(66), &this->fonts["default"], true);
 	
-	UIObject* trapObj = trap;
-	this->uiList.add(trapObj);
+	// UIObject* trapObj = trap;
+	// this->uiList.add(trapObj);
+	this->uiList.add(trap);
 
 	this->buttons["Build_Trap"] = trap;
 	
@@ -171,40 +177,47 @@ void GameState::initUI(){
 
 	UIButtonTimer* craftElec = new UIButtonTimer(gfx.getX(35), gfx.getY(60), gfx.getX(14), gfx.getY(8), this->defaultTheme, gfx.getY(1),
 	"Craft Electronics", gfx.getCharSize(98), &this->fonts["default"], true, 20.f, false);
-	UIObject* elecObj = craftElec;
-	this->uiList.add(elecObj);
+	// UIObject* elecObj = craftElec;
+	// this->uiList.add(elecObj);
+	this->uiList.add(craftElec);
+
 	this->timers["Craft_Electronics"] = craftElec;
 
 	UIButton* radio = new UIButton(gfx.getX(35), gfx.getY(70), gfx.getX(14), gfx.getY(8), this->defaultTheme, gfx.getY(1),
 	"Build Radio", gfx.getCharSize(66), &this->fonts["default"], true);
 	
-	UIObject* radioObj = radio;
-	this->uiList.add(radioObj);
+	// UIObject* radioObj = radio;
+	// this->uiList.add(radioObj);
+	this->uiList.add(radio);
 
 	this->buttons["Build_Radio"] = radio;
 
 	UIButtonTimer* gatherWood = new UIButtonTimer(gfx.getX(51), gfx.getY(20), gfx.getX(14), gfx.getY(8), this->defaultTheme, gfx.getY(1),
 	"Gather Wood", gfx.getCharSize(70), &this->fonts["default"], true, 10.f, false);
-	UIObject* woodObj = gatherWood;
-	this->uiList.add(woodObj);
+	// UIObject* woodObj = gatherWood;
+	// this->uiList.add(woodObj);
+	this->uiList.add(gatherWood);
 	this->timers["Gather_Wood"] = gatherWood;
 
 	UIButtonTimer* gatherCloths = new UIButtonTimer(gfx.getX(51), gfx.getY(30), gfx.getX(14), gfx.getY(8), this->defaultTheme, gfx.getY(1),
 	"Gather Cloth", gfx.getCharSize(70), &this->fonts["default"], true, 10.f, false);
-	UIObject* clothObj = gatherCloths;
-	this->uiList.add(clothObj);
+	// UIObject* clothObj = gatherCloths;
+	// this->uiList.add(clothObj);
+	this->uiList.add(gatherCloths);
 	this->timers["Gather_Cloth"] = gatherCloths;
 
 	UIButtonTimer* forageMetals = new UIButtonTimer(gfx.getX(51), gfx.getY(40), gfx.getX(14), gfx.getY(8), this->defaultTheme, gfx.getY(1),
 	"Forage Metal", gfx.getCharSize(70), &this->fonts["default"], true, 15.f, false);
-	UIObject* metalObj = forageMetals;
-	this->uiList.add(metalObj);
+	// UIObject* metalObj = forageMetals;
+	// this->uiList.add(metalObj);
+	this->uiList.add(forageMetals);
 	this->timers["Forage_Metal"] = forageMetals;
 
 	UIButtonTimer* checkTraps = new UIButtonTimer(gfx.getX(51), gfx.getY(50), gfx.getX(14), gfx.getY(8), this->defaultTheme, gfx.getY(1),
 	"Check Traps", gfx.getCharSize(70), &this->fonts["default"], true, 15.f, false);
-	UIObject* trapsObj = checkTraps;
-	this->uiList.add(trapsObj);
+	// UIObject* trapsObj = checkTraps;
+	// this->uiList.add(trapsObj);
+	this->uiList.add(checkTraps);
 	this->timers["Check_Traps"] = checkTraps;
 
 	UIDisplayText* inventoryText = new UIDisplayText(gfx.getX(78), gfx.getY(4), gfx.getX(8), gfx.getY(4), this->defaultTheme, "Inventory: \n", gfx.getCharSize(80), &this->fonts["default"]);
@@ -273,11 +286,20 @@ GameState::GameState(GlobalData* global_data) : State(global_data){
 GameState::~GameState(){
 
 	// for(std::map<std::string, UIButton*>::iterator it = buttons.begin(); it != buttons.end(); it++){
-	// 	delete (it->second);
+	// 	it->
 	// }
-	// buttons.clear();
+	//uiList.~UIList();/////////????????????NOPE
+
+	buttons.clear();
+	timers.clear();
+	inventoryMap.clear();
 
 	//causes segmentation fault
+
+	for(auto it : this->uiTexts){
+        delete it;
+    }
+    this->uiTexts.clear();
 
 }
 
@@ -304,6 +326,7 @@ void GameState::updateButtons(){
 	GraphicsConverter gfx = GraphicsConverter(this->globalData->gfxSettings->resolution);
 	if(this->buttons["Wake_up"]->isClicked() && !showGame){
 		showGame = true;
+		buttons["Wake_up"]->setPosition(gfx.getX(150),gfx.getY(150));
 	}
 	if(this->buttons["Main_Menu"]->isClicked()) {
 		this->endState();
@@ -534,7 +557,7 @@ void GameState::render(sf::RenderTarget* target){
 
 	if(showGame){
 		if(asleep){
-			uiList.popBack();
+			//uiList.popBack();
 			asleep = false;
 		}
 		renderBackground(target);

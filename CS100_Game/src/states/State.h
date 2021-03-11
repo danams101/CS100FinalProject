@@ -41,7 +41,7 @@ class State {
 		bool paused;
 		std::map<std::string, int> keybinds;
 
-		float keytime;
+		float keytime = 0.f;
 		// in seconds
 		float keytimeMax = 8.f;//0.3f;
 

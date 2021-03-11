@@ -14,6 +14,8 @@ class UIButtonTimer : public UIButton {
         UIButtonTimer(float x, float y, float width, float height, std::map<std::string, sf::Color> colors, float thickness = 0,
 		std::string text = "", int textSize = 0, sf::Font* font = nullptr, bool centered = false, float duration = 5.f, bool activated = false);
 
+        ~UIButtonTimer();
+
         /* UIButtonTimer Accessors */
         bool isTimerDone();
         bool isClickable();
