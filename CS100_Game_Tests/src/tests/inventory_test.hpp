@@ -18,7 +18,7 @@ class InventoryTest : public TestSuite {
 	virtual ~InventoryTest() {
 		}
 	void test() {
-	    expectedTests(25);
+	    expectedTests(26);
             std::string title;
 
             Inventory* temp1 = new Inventory();
