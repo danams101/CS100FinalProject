@@ -66,7 +66,7 @@ The launcher contains the main function, in main() a Game object is instantiated
  ![Testing2](./FinalProjectScreenShots/CS100_Game_Test_2.png)
  
  ## Installation/Usage
- We have a release folder that has all of our resources and the executable. To run the game, someone should be able to download the release folder and run the executable.
+ We have a release folder that has all of our resources and the executable for both windows and linux. To run the game, someone should be able to download the release folder and run either executable. However for the linux executable, the user must run it in the command line using "./launch".
  
  ## Valgrind Explanation
  For our project we are using the SFML Graphics Library as one of our dependencies. However, it seems that SFML itself has a memory leak that has nothing to do with our code. As proof we ran valgrind on the basic main.cpp file that sfml-dev.org has on their tutorial section, found [Here](https://www.sfml-dev.org/tutorials/2.5/start-linux.php), and got this result.
