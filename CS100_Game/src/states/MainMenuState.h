@@ -10,7 +10,7 @@ class MainMenuState : public State {
 	private:
 
 		//Resources needed
-		const std::string keybindFile = "../res/config/keybinds_mainmenustate.ini"; //Note: corrected file navigation
+		const std::string keybindFile = "../res/config/keybinds_mainmenustate.ini";
 		const std::string defaultFontFile = "../res/fonts/UbuntuMono-R.ttf";
 
 		//Variables
