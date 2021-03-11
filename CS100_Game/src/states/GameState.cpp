@@ -25,7 +25,7 @@ void GameState::initColors(){
 	/* Implementation to load in colors
 	In the future, should be able to load multiple themes
 	Using a gfx loader class from a .ini file */
-	
+
 	// Set default theme colors
 	this->debugTheme["idleColor"] = sf::Color::White;
 	this->debugTheme["hoverColor"] = sf::Color::Yellow;
@@ -51,7 +51,7 @@ void GameState::initColors(){
 	this->defaultTheme["backgroundColor"] = sf::Color(173,181,189);
 
 	this->tabButtonTheme["idleColor"] = sf::Color::Transparent;
-	this->tabButtonTheme["hoverColor"] = sf::Color::Transparent; 
+	this->tabButtonTheme["hoverColor"] = sf::Color::Transparent;
 	this->tabButtonTheme["activeColor"] = sf::Color::Transparent;
 	this->tabButtonTheme["accentIdleColor"] = sf::Color(32,37,41);
 	this->tabButtonTheme["accentHoverColor"] = sf::Color(130,130,130);
@@ -83,7 +83,7 @@ void GameState::initKeybinds(){
 // Initialize the text map from text file
 void GameState::initTexts(){
 
-	std::ifstream ifs("../res/config/updateTexts.ini");
+	std::ifstream ifs(updateTextFile);
 	//DEBUG
 	if(!ifs.is_open()){
 		std::cout << "update texts not opened!" << "\n";
@@ -107,7 +107,7 @@ void GameState::initUI(){
 
 	UIButton* wakeUp = new UIButton(gfx.getX(40), gfx.getY(60), gfx.getX(20), gfx.getY(15), this->defaultTheme, gfx.getY(1),
 	"Wake up", gfx.getCharSize(40), &this->fonts["default"], true);
-	
+
 	//UIObject* wakeUpObj = wakeUp;////////////////////////////
 	//this->uiList.add(wakeUpObj);
 	this->uiList.add(wakeUp);
@@ -117,7 +117,7 @@ void GameState::initUI(){
 	// a dark forest tab
 	UIButton* forest = new UIButton(gfx.getX(50), gfx.getY(1.65), gfx.getX(16.7), gfx.getY(8), this->tabButtonTheme, gfx.getY(0.4),
 	"A Dark Forest", gfx.getCharSize(80), &this->fonts["default"], true);
-	
+
 	// UIObject* forestObj = forest;
 	// this->uiList.add(forestObj);
 	this->uiList.add(forest);
@@ -127,11 +127,11 @@ void GameState::initUI(){
 	UIDisplayText* campfireTab = new UIDisplayText(gfx.getX(37), gfx.getY(4), gfx.getX(8), gfx.getY(4), this->defaultTheme, "Camp Fire", gfx.getCharSize(80), &this->fonts["default"]); //changed theme to test
 	campfireTab->setTextBold();
 	this->uiList.add(campfireTab);
-	
+
 
 	UIButton* mainMenu = new UIButton(gfx.getX(35), gfx.getY(85), gfx.getX(10), gfx.getY(5), this->defaultTheme, gfx.getY(1),
 	"Main Menu", gfx.getCharSize(80), &this->fonts["default"], true);
-	
+
 	// UIObject* mainMenuObj = mainMenu;/////////////////
 	// this->uiList.add(mainMenuObj);
 	this->uiList.add(mainMenu);
@@ -141,7 +141,7 @@ void GameState::initUI(){
 
 	UIButton* fire = new UIButton(gfx.getX(35), gfx.getY(20), gfx.getX(14), gfx.getY(8), this->defaultTheme, gfx.getY(1),
 	"Stoke fire", gfx.getCharSize(66), &this->fonts["default"], true);
-	
+
 	// UIObject* fireObj = fire;
 	// this->uiList.add(fireObj);
 	this->uiList.add(fire);
@@ -155,7 +155,7 @@ void GameState::initUI(){
 
 	UIButton* tent = new UIButton(gfx.getX(35), gfx.getY(35), gfx.getX(14), gfx.getY(8), this->defaultTheme, gfx.getY(1),
 	"Tent", gfx.getCharSize(66), &this->fonts["default"], true);
-	
+
 	// UIObject* tentObj = tent;
 	// this->uiList.add(tentObj);
 	this->uiList.add(tent);
@@ -164,13 +164,13 @@ void GameState::initUI(){
 
 	UIButton* trap = new UIButton(gfx.getX(35), gfx.getY(45), gfx.getX(14), gfx.getY(8), this->defaultTheme, gfx.getY(1),
 	"Trap", gfx.getCharSize(66), &this->fonts["default"], true);
-	
+
 	// UIObject* trapObj = trap;
 	// this->uiList.add(trapObj);
 	this->uiList.add(trap);
 
 	this->buttons["Build_Trap"] = trap;
-	
+
 	UIDisplayText* Craft = new UIDisplayText(gfx.getX(35), gfx.getY(55), gfx.getX(8), gfx.getY(4), this->defaultTheme, "Craft:", gfx.getCharSize(80), &this->fonts["default"]);
 	Craft->setTextBold();
 	this->uiList.add(Craft);
@@ -185,7 +185,7 @@ void GameState::initUI(){
 
 	UIButton* radio = new UIButton(gfx.getX(35), gfx.getY(70), gfx.getX(14), gfx.getY(8), this->defaultTheme, gfx.getY(1),
 	"Build Radio", gfx.getCharSize(66), &this->fonts["default"], true);
-	
+
 	// UIObject* radioObj = radio;
 	// this->uiList.add(radioObj);
 	this->uiList.add(radio);
@@ -322,7 +322,7 @@ void GameState::configureTextList(std::list<uiText*>& list){
 
 //Ticks and render
 void GameState::updateButtons(){
-	
+
 	GraphicsConverter gfx = GraphicsConverter(this->globalData->gfxSettings->resolution);
 	if(this->buttons["Wake_up"]->isClicked() && !showGame){
 		showGame = true;
@@ -360,7 +360,7 @@ void GameState::updateButtons(){
 			inventory.SetWood(inventory.getnumWood()-camp.getReqWoodsTent());
 			inventory.SetCloth(inventory.getnumCloth()-camp.getReqClothsTent());
 			camp.incrementTents();
-			
+
 			uiTexts.push_back(new uiText(gfx.getCharSize(92), defaultTheme["normalTextColor"], this->texts["BuiltTent"], this->fonts["default"], sf::Vector2f(gfx.getX(2), gfx.getY(0.5))));
 			configureTextList(this->uiTexts);
 			camp.updateReqMaterials();
@@ -370,7 +370,7 @@ void GameState::updateButtons(){
 		else {
 			uiTexts.push_back(new uiText(gfx.getCharSize(92), defaultTheme["normalTextColor"], this->texts["NotEnough"], this->fonts["default"], sf::Vector2f(gfx.getX(2), gfx.getY(0.5))));
 			configureTextList(this->uiTexts);
-			
+
 		}
 	}
 
@@ -379,7 +379,7 @@ void GameState::updateButtons(){
 			inventory.SetWood(inventory.getnumWood()-camp.getReqWoodsTrap());
 			inventory.SetMetal(inventory.getnumMetal()-camp.getReqMetalsTrap());
 			camp.incrementTraps();
-			
+
 			uiTexts.push_back(new uiText(gfx.getCharSize(92), defaultTheme["normalTextColor"], this->texts["BuiltTrap"], this->fonts["default"], sf::Vector2f(gfx.getX(2), gfx.getY(0.5))));
 			configureTextList(this->uiTexts);
 			camp.updateReqMaterials();
@@ -392,13 +392,13 @@ void GameState::updateButtons(){
 
 		}
 	}
-	
+
 	if(buttons["Build_Radio"]->isClicked()){
 		if(inventory.getnumMetal() >= camp.getReqMetalsRadio() && inventory.getnumElectronics() >= camp.getReqElectronicsRadio()){
 			inventory.SetMetal(inventory.getnumMetal()-camp.getReqMetalsRadio());
 			inventory.SetElectronics(inventory.getnumElectronics()-camp.getReqElectronicsRadio());
 			camp.incrementRadioProgress();
-			
+
 			uiTexts.push_back(new uiText(gfx.getCharSize(92), defaultTheme["normalTextColor"], this->texts["RadioProgress"], this->fonts["default"], sf::Vector2f(gfx.getX(2), gfx.getY(0.5))));
 			configureTextList(this->uiTexts);
 			camp.updateReqMaterials();
@@ -483,7 +483,7 @@ void GameState::updateButtons(){
 }
 
 void GameState::updateInventory(){
-	
+
 	std::string currentWood = std::to_string(inventory.getnumWood());
 	std::string currentMeat = std::to_string(inventory.getnumMeat());
 	std::string currentMetal = std::to_string(inventory.getnumMetal());
@@ -517,7 +517,7 @@ void GameState::tick(const float& dt){
 
 void GameState::renderBackground(sf::RenderTarget* target){
 	GraphicsConverter gfx = GraphicsConverter(this->globalData->gfxSettings->resolution);
-		
+
 	sf::RectangleShape leftScreen;
 	leftScreen.setFillColor(sf::Color::Transparent);
 	leftScreen.setOutlineThickness(4.f);
@@ -547,7 +547,7 @@ void GameState::renderUpdateTexts(sf::RenderTarget* target){
 	for (auto it : uiTexts){
 		it->render(target);
 	}
-	
+
 }
 
 void GameState::render(sf::RenderTarget* target){
@@ -564,7 +564,7 @@ void GameState::render(sf::RenderTarget* target){
 		renderUpdateTexts(target);
 
 		this->uiList.render(target);
-		
+
 	}
 	else{
 		target->clear(sf::Color::Black);
@@ -572,5 +572,5 @@ void GameState::render(sf::RenderTarget* target){
 	}
 
 
-	this->renderMousePos();
+	//this->renderMousePos();
 }
