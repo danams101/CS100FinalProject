@@ -138,7 +138,7 @@ void MainMenuState::updateButtons() {
 
 	// New Game
 	if(this->buttons["Play_Game"]->isClicked()) {
-		std::cout << "CLICKED!!!!!" << std::endl;
+		//std::cout << "CLICKED!!!!!" << std::endl;
 		//this->states->push(new GameState(this->stateData));
 		this->globalData->states->push(new GameState(this->globalData));
 	}
