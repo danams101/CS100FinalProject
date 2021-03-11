@@ -83,7 +83,7 @@ void GameState::initKeybinds(){
 // Initialize the text map from text file
 void GameState::initTexts(){
 
-	std::ifstream ifs("../res/config/updateTexts.ini");
+	std::ifstream ifs("res/config/updateTexts.ini");
 	//DEBUG
 	if(!ifs.is_open()){
 		std::cout << "update texts not opened!" << "\n";
