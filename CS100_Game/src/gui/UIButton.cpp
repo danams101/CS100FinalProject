@@ -99,6 +99,8 @@ void UIButton::setFont(sf::Font* font) {
 // Sets position of button
 void UIButton::setPosition(float x, float y){
     /* Sets position of the button and centers the text within the button. */
+	this->x = x;
+	this->y = y;
 
     this->bounds.setPosition(sf::Vector2f(x, y));
 

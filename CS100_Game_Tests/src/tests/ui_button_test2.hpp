@@ -8,28 +8,21 @@
 // #include "../../../CS100_Game/src/gui/UIObject.cpp"
 // #include "../../../CS100_Game/src/gui/UIButton.cpp"
 
-class UIButtonTest2 : public TestSuite {
+class UIButtonTest : public TestSuite {
 
     private:
 
     public:
-        UIButtonTest2(GlobalData* global_data) : TestSuite(global_data) {
-            this->name = "UIButtonTest2";
+        UIButtonTest(GlobalData* global_data) : TestSuite(global_data) {
+            this->name = "UIButtonTest";
         }
-		virtual ~UIButtonTest2() {
+		virtual ~UIButtonTest() {
 		}
 
 		void test() {
-			expectedTests(4);
+			expectedTests(11);
 			std::string title;
-
-			// SubEvaluateNonZero
-			title = "SubEvaluateNonZero";
-			int a = 5;
-			int b = 2;
-			this->expect_eq(a - b, 3, title);
-
-			// XPosAt1
+		
 			title = "XPosAt1";
 			float x = 1;
 			float y = 1;
@@ -38,15 +31,39 @@ class UIButtonTest2 : public TestSuite {
 			std::map<std::string, sf::Color> colors;
 			UIButton* temp1 = new UIButton(x, y, width, height, colors);
 			this->expect_eq(temp1->getX(), 1, title);
-
-			// CenteredFalse
+			
 			title = "CenteredFalse";
 			this->expect_eq(temp1->isCentered(), false, title);
 
-			// EmptyText
 			title = "EmptyText";
 			this->expect_eq(temp1->getText(), "", title);
 
+           		 title = "HoveredFalse";
+          		 this->expect_eq(temp1->isHovered(), false, title);
+
+            		title = "ActiveFlase";
+            		this->expect_eq(temp1->isActive(), false, title);
+
+            		title = "ClickedFlase";
+            		this->expect_eq(temp1->isClicked(), false, title);
+
+            		title = "setStateHover";
+            		temp1->setState("hover");
+            		this->expect_eq(temp1->isHovered(),true,title);
+
+            		title = "setStateActive";
+            		temp1->setState("active");
+            		this->expect_eq(temp1->isActive(),true,title);
+
+            		title = "setText";
+            		temp1->setText("NotEmpty");
+            		this->expect_eq(temp1->getText(), "NotEmpty", title);
+
+            		title = "setPosition";
+            		temp1->setPosition(1,1);
+            		this->expect_eq(temp1->getX(),1,title);
+            		this->expect_eq(temp1->getY(),1,title);
+			
 			ranTests();
 		}
 };

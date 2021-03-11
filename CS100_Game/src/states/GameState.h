@@ -15,13 +15,14 @@ class GameState : public State {
     protected:
 
         //Resources needed
-        const std::string keybindFile = "../res/config/keybinds_gamestate.ini";
-        const std::string defaultFontFile = "../res/fonts/UbuntuMono-R.ttf";
+        const std::string keybindFile = "res/config/keybinds_gamestate.ini";
+        const std::string defaultFontFile = "res/fonts/UbuntuMono-R.ttf";
+        const std::string updateTextFile = "res/config/updateTexts.ini";
 
 		//Variables
 		std::map<std::string, sf::Font> fonts;
 
-        // 0 = out, 1 = flickering, 2 = roaring 
+        // 0 = out, 1 = flickering, 2 = roaring
         int fireState = 0;
         Inventory inventory;
         CampStatus camp;
@@ -34,12 +35,12 @@ class GameState : public State {
         std::map<std::string, UIButtonTimer*> timers;
 
         std::map<std::string, UIDisplayText*> inventoryMap;
-        
+
         //Possible texts to display, will initialize from a text file
         std::map<std::string, std::string> texts;
 
         std::list<uiText*> uiTexts;
-		
+
 		std::map<std::string, sf::Color> defaultTheme;
 		std::map<std::string, sf::Color> debugTheme;
         std::map<std::string, sf::Color> tabButtonTheme;
