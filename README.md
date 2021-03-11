@@ -52,16 +52,19 @@ We will use the composite pattern to construct a Graphic User Interface using th
 ### Class Diagram Description:
 The launcher contains the main function, in main() a Game object is instantiated. The Game class contains a stack of States and calls update and render functions of the current state the game is in. It also determines when to quits the game and when to continue running the game. The State class is where we implement the State design pattern. We declare an abstract State class with virtual functions: updateKeyInput, update, and render. Then we curently have two main states, MainMenuState and GameState, where those functions are implemented along with functions specific to each state. The GameState contains an Inventory which is a class that stores the amount of items the player has. Both the GameState and MainMenuState instantiate several UIObjects. The UIObject class is where we implemented the Composite Design Pattern. There is the abstract class UIObject, the compoite class UIList, and the leaf classes UIButton, UIDisplayText, UITextBox, UIButtonTimer, and UIStatBar. Each subclass of UIObject implements the render and tick virtual function, with each leaf class haveing their own unique functions they implement. 
  
-
- > ## Final deliverable
- > All group members will give a demo to the TA during lab time. The TA will check the demo and the project GitHub repository and ask a few questions to all the team members. 
- > Before the demo, you should do the following:
- > * Complete the sections below (i.e. Screenshots, Installation/Usage, Testing)
- > * Plan one more sprint (that you will not necessarily complete before the end of the quarter). Your In-progress and In-testing columns should be empty (you are not doing more work currently) but your TODO column should have a full sprint plan in it as you have done before. This should include any known bugs (there should be some) or new features you would like to add. These should appear as issues/cards on your Kanban board. 
  
  ## Screenshots
- > Screenshots of the input/output after running your application
+ ![CommandLine](./FinalProjectScreenShots/commandLine.png)
+ ![MainMenu](./FinalProjectScreenShots/MainMenu.png)
+ ![MainMenuMouse](./FinalProjectScreenShots/MainMenuMouseHighlight.png)
+ ![IntroSceen](./FinalProjectScreenShots/IntroScene.png)
+ ![GameState](./FinalProjectScreenShots/GameState.png)
+ ![GameStateProgress1](./FinalProjectScreenShots/GameStateProgress1.png)
+ ![GameStateProgress2](./FinalProjectScreenShots/GameStateProgress2.png)
+ ![end](./FinalProjectScreenShots/endResults.png)
+ 
  ## Installation/Usage
- > Instructions on installing and running your application
+ We have a release folder that has all of our resources and the executable. To run the game, someone should be able to download the release folder and run the executable.
+ 
 ## Testing
 In order to test our project properly, we built our own testing framework. Our testing framework is very similar to google tests, and we put the testing code in a separate project folder named CS100_Game_Tests. Once our testing project is compiled, it will run an executable that will output the test suite's results. Currently, our testing framework supports expect_eq(), where we can compare integers, booleans, and strings to see if they are the correct expected value. While we may not be able to properly test the rendered UI of our project, we separated our functions to two case, tick() and render(). Tick() manages the data manipulation, the back-end, while render() simply draws to the screen the data supplied from tick(). This way, we can test and see if our data manipulation is correctly being ran, without having to output the UI. Some examples can be  seeing if UIObjects are being constructed properly with the correct values, if boundary collision is being detected properly, and if the correct states are being set for UIButtons. These data values all have acccessors and setters, where we can test to see if they're propeprly being manipulated.
