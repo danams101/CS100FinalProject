@@ -46,7 +46,7 @@ We will use the composite pattern to construct a Graphic User Interface using th
 
 ## Class Diagram
 
-![classDiagram](https://github.com/cs100/final-project-powerrangers/blob/master/CS100_Game_OMT.png)
+![classDiagram](./CS100_Game_OMT.png)
 
 ### Class Diagram Description:
 The launcher contains the main function, in main() a Game object is instantiated. The Game class contains a stack of States and calls update and render functions of the current state the game is in. It also determines when to quits the game and when to continue running the game. The State class is where we implement the State design pattern. We declare an abstract State class with virtual functions: updateKeyInput, update, and render. Then we curently have two main states, MainMenuState and GameState, where those functions are implemented along with functions specific to each state. The GameState contains an Inventory which is a class that stores the amount of items the player has. Both the GameState and MainMenuState instantiate several UIObjects. The UIObject class is where we implemented the Composite Design Pattern. There is the abstract class UIObject, the compoite class UIList, and the leaf classes UIButton, UIDisplayText, UITextBox, UIButtonTimer, and UIStatBar. Each subclass of UIObject implements the render and tick virtual function, with each leaf class haveing their own unique functions they implement. 
