@@ -20,7 +20,7 @@ class UIButtonTest : public TestSuite {
 		}
 
 		void test() {
-		expectedTests(8);
+		expectedTests(16);
         	std::string title;
 
             title = "XPosAt1";
@@ -32,14 +32,45 @@ class UIButtonTest : public TestSuite {
             UIButton* temp1 = new UIButton(x, y, width, height, colors);
             this->expect_eq(temp1->getX(), 1, title);
 
+	    title = "XNegAt1";
+            x = -1;
+            this->expect_eq(temp1->getX(), 1, title);
+
+            title = "XPosAtDecimal";
+            x = 1.5;
+            this->expect_eq(temp1->getX(), 1, title);
+
             title = "YPosAt1";
             this->expect_eq(temp1->getY(), 1, title);
 
+            title = "YNegAt1";
+            y = -1;
+            this->expect_eq(temp1->getY(), 1, title);
+
+            title = "YPosAtDecimal";
+            y = 1.5;
+            this->expect_eq(temp1->getY(), 1, title);
 
             title = "WidthAt1";
             this->expect_eq(temp1->getWidth(),1,title);
 
+            title = "WidthNegAt1";
+            width = -1;
+            this->expect_eq(temp1->getWidth(), 1, title);
+
+            title = "WidthAtDecimal";
+            width=1.5;
+            this->expect_eq(temp1->getWidth(),1,title);
+
             title = "HeightAt1";
+            this->expect_eq(temp1->getHeight(),1,title);
+
+            title = "HeightNegAt1";
+            height = -1;
+            this->expect_eq(temp1->getHeight(),1,title);
+
+            title = "HeightAtDecimal";
+            height = 1.5;
             this->expect_eq(temp1->getHeight(),1,title);
 
             title = "SetPosition";
@@ -51,7 +82,8 @@ class UIButtonTest : public TestSuite {
             temp1->setSize(10,10);
             this->expect_eq(temp1->getWidth(),10,title);
             this->expect_eq(temp1->getHeight(),10,title);
-            ranTests();
+
+            ranTests();            
 
             delete temp1;
 		}
