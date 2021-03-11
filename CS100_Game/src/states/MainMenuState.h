@@ -10,14 +10,14 @@ class MainMenuState : public State {
 	private:
 
 		//Resources needed
-		const std::string keybindFile = "../res/config/keybinds_mainmenustate.ini"; //Note: corrected file navigation
-		const std::string defaultFontFile = "../res/fonts/UbuntuMono-R.ttf";
+		const std::string keybindFile = "res/config/keybinds_mainmenustate.ini"; //Note: corrected file navigation
+		const std::string defaultFontFile = "res/fonts/UbuntuMono-R.ttf";
 
 		//Variables
 		std::map<std::string, sf::Font> fonts;
 		UIList uiList;
 		std::map<std::string, UIButton*> buttons;
-		
+
 		std::map<std::string, sf::Color> defaultTheme;
 		std::map<std::string, sf::Color> debugTheme;
 
@@ -34,7 +34,7 @@ class MainMenuState : public State {
 
 		/* Functions */
 		void resetUI();
-		
+
 		// Tick and render
 		void updateButtons();
 		void updateKeyInput();
