@@ -145,7 +145,8 @@ void MainMenuState::updateButtons() {
 
 	// Setting Menu
 	if(this->buttons["Settings_Menu"]->isClicked()) {
-
+		/* TEMPORARY STORY STATE! WILL REMOVE.*/
+		this->globalData->states->push(new StoryState(this->globalData));
 	}
 
 	// Quit Game

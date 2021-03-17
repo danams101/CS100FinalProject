@@ -4,7 +4,7 @@
 #include "State.h"
 #include <list>
 
-#include "../gui/guiText.hpp"
+//#include "../gui/guiText.hpp"
 #include "../inventory/inventory.hpp"
 #include "../inventory/campStatus.hpp"
 //#include "ForestState.h"

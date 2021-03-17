@@ -11,6 +11,8 @@
 #include "../gui/UITextbox.h"
 #include "../gui/UIButtonTimer.h"
 
+#include "../gui/guiText.hpp"
+
 
 class GraphicsSettings;
 class State;
@@ -43,7 +45,7 @@ class State {
 
 		float keytime = 0.f;
 		// in seconds
-		float keytimeMax = 8.f;//0.3f;
+		float keytimeMax = 0.3f;
 
 		// Resources
 		// std::map<std::string, sf::Texture> textures;
