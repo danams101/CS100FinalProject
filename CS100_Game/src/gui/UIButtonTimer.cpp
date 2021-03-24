@@ -21,7 +21,7 @@ bool UIButtonTimer::isClickable(){
 }
 
 bool UIButtonTimer::getTimerActivation(){
-	status->isActivated();
+	return status->isActivated();
 }
 
 /* UIButtonTimer Functions */
