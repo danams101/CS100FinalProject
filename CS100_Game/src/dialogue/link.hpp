@@ -4,7 +4,7 @@
 #include "../stdafx.h"
 #include "../gui/guiText.hpp"
 #include "../gui/UIButton.h"
-#include "node.hpp"
+//#include "node.hpp"
 
 class Node;
 
@@ -17,7 +17,7 @@ class Link {
 
         bool chosen;
 
-        Node* prevNode;
+        //Node* prevNode;
         Node* nextNode; 
 
     public:
@@ -30,17 +30,17 @@ class Link {
 
             chosen = false;
 
-            prevNode = nullptr;
+            //prevNode = nullptr;
             nextNode = nullptr;
         }
-        Link(uiText* name, uiText* dialogue, UIButton* choice, Node* prevNode = nullptr, Node* nextNode = nullptr){
+        Link(uiText* name, uiText* dialogue, UIButton* choice, Node* nextNode = nullptr){
             npcName = name;
             npcDialogue = dialogue;
             playerChoice = choice;
 
             chosen = false;
 
-            this->prevNode = prevNode;
+            //this->prevNode = prevNode;
             this->nextNode = nextNode;
         }
 
@@ -48,6 +48,14 @@ class Link {
 
 
         /* Accessors */
+        uiText* getNpcName(){
+            return npcName;
+        }
+
+        uiText* getNpcDialogue(){
+            return npcDialogue;
+        }
+
         UIButton* getPlayerChoiceButton(){
             return playerChoice;
         }
@@ -77,22 +85,26 @@ class Link {
             chosen = tof;
         }
 
-        void setPreviousNode(Node* node){
-            prevNode = node;
-        }
+        // void setPreviousNode(Node* node){
+        //     prevNode = node;
+        // }
 
         void setNextNode(Node* node){
             nextNode = node;
         }
 
-        void setNodeNext(){
-            prevNode->setNext(nextNode);
-        }
+        // void setNodeNext(){
+        //     prevNode->setNext(nextNode);
+        // }
 
         /* Functions */
         void render(sf::RenderTarget* target){
-            if(playerChoice != nullptr)
+            npcName->render(target);
+            npcDialogue->render(target);
+            if(playerChoice != nullptr){
                 this->playerChoice->renderButton(target);
+                this->playerChoice->renderText(target);
+            }
         }
 };
 
